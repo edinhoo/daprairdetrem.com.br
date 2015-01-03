@@ -1,4 +1,4 @@
-<?php
+<?PHP
 abstract class Atracao {
     private $id;
     private $nome;
@@ -6,12 +6,33 @@ abstract class Atracao {
     private $endereco;
     private $latitude;
     private $longitude;
+    private $linkMapa;
+    private $website;
+    private $vizualizacoes;
     private $idUsuario;
+    private $idEstacao;
     public $listaComentarios;
     public $listaAvaliacoes;
     public $listaVideos;
     public $listaImagens;
     
+    /*
+    protected function __construct($id, $nome, $dataInclusao, $endereco, $latitude, $longitude,
+    								$linkMapa, $website, $vizualizacoes, $idUsuario, $idEstacao) {
+    	$this->id = $id;
+    	$this->nome = $nome;
+    	$this->dataInclusao = $dataInclusao;
+    	$this->endereco = $endereco;
+    	$this->latitude = $latitude;
+    	$this->longitude = $longitude;
+    	$this->linkMapa = $linkMapa;
+    	$this->website = $website;
+    	$this->vizualizacoes = $vizualizacoes;
+    	$this->idUsuario = $idUsuario;
+    	$this->idEstacao = $idEstacao;
+    }
+	*/
+
     // getters
     public function getId() {
 		return $this->id;
@@ -36,22 +57,27 @@ abstract class Atracao {
 	public function getLongitude() {
 		return $this->longitude;
 	}
-	
-	public function getListaComentarios() {
-		return $this->listaComentarios;
+    
+    public function getLinkMapa() {
+		return $this->linkMapa;
+	}
+
+	public function getWebsite() {
+		return $this->website;
+	}
+    
+    public function getVizualizacoes() {
+		return $this->vizualizacoes;
 	}
 	
-	public function getListaAvaliacoes() {
-		return $this->listaAvaliacoes;
+    public function getIdUsuario() {
+		return $this->idUsuario;
 	}
-	
-	public function getListaVideos() {
-		return $this->listaVideos;
+
+    public function getIdEstacao() {
+		return $this->idEstacao;
 	}
-	
-	public function getListaImagens() {
-		return $this->listaImagens;
-	}
+
     
     // setters
 	public function setId($id) {
@@ -77,33 +103,27 @@ abstract class Atracao {
 	public function setLongitude($longitude) {
 		$this->longitude = $longitude;
 	}
+    
+    public function setLinkMapa($linkMapa) {
+		$this->linkMapa = $linkMapa;
+	}
+
+	public function setWebsite($website) {
+		$this->website = $website;
+	}
+    
+    public function setVizualizacoes($vizualizacoes) {
+		return $this->vizualizacoes = $vizualizacoes;
+	}
 	
 	public function setIdUsuario($idUsuario) {
 		$this->idUsuario = $idUsuario;
 	}
-	
-	public function setListaComentarios($listaComentarios) {
-		$this->listaComentarios = $listaComentarios;
+    
+    public function setIdEstacao($idEstacao) {
+		$this->idEstacao = $idEstacao;
 	}
 	
-	public function setListaAvaliacoes($listaAvaliacoes) {
-		$this->listaAvaliacoes = $listaAvaliacoes;
-	}
-	
-	public function setListaVideos($listaVideos) {
-		$this->listaVideos = $listaVideos;
-	}
-	
-	public function setListaImagens($listaImagens) {
-		$this->listaImagens = $listaImagens;
-	}
-	
-	public function loadListasConteudos(){
-		$this->setListaComentarios(gerarListaComentarios($this));
-		$this->setListaAvaliacoes(gerarListaAvaliacoes($this));
-		$this->setListaImagens(gerarListaImagens($this));
-		$this->setListaVideos(gerarListaVideos($this));
-	}
 }
   
 ?>

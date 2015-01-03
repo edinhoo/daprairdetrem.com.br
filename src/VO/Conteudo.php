@@ -7,6 +7,17 @@ abstract class Conteudo {
     private $idEvento;
     private $idUsuario;
     
+    /*
+    protected function __construct($id, $categoria, $dataInclusao, $idEstabelecimento, $idEvento, $idUsuario) {
+    	$this->id = $id;
+    	$this->categoria = $categoria;
+    	$this->dataInclusao = $dataInclusao;
+    	$this->idEstabelecimento = $idEstabelecimento;
+    	$this->idEvento = $idEvento;
+    	$this->idUsuario = $idUsuario;
+    }
+    */
+
     // getters
     public function getId() {
 		return $this->id;
