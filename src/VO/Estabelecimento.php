@@ -8,15 +8,16 @@ class Estabelecimento extends Atracao {
     
     // Verificar function overloading
     /*
-    public function __construct($id, $nome, $dataInclusao, $endereco, $latitude, $longitude,
-    							$linkMapa, $website, $vizualizacoes, $idUsuario, $idEstacao,
-    							$ehBar, $ehRestaurante, $ehCentroCultural) 
+    public function __construct($id=null, $nome=null, $dataInclusao=null, $endereco=null,
+    							$latitude=null, $longitude=null, $linkMapa=null, $website=null,
+    							$vizualizacoes=null, $idUsuario=null, $idEstacao=null,
+    							$ehBar=null, $ehRestaurante=null, $ehCentroCultural=null)
     {
+    	parent::__construct($id, $nome, $dataInclusao, $endereco, $latitude, $longitude,
+    						$linkMapa, $website, $vizualizacoes, $idUsuario, $idEstacao);
     	$this->ehBar = $ehBar;
     	$this->ehRestaurante = $ehRestaurante;
     	$this->ehCentroCultural = $ehCentroCultural;
-    	parent::__construct($this->id, $this->nome, $this->dataInclusao, $this->endereco, $this->latitude, $this->longitude,
-    						$this->linkMapa, $this->website, $this->vizualizacoes, $this->idUsuario, $this->idEstacao);
     }
     */
 

@@ -10,6 +10,7 @@ class Estacao {
     private $endereco;
     private $latitude;
     private $longitude;
+    private $linkMapa;
     public $listaEstabelecimentos;
     public $listaEventos;
     
@@ -33,14 +34,11 @@ class Estacao {
 	public function getLongitude() {
 		return $this->longitude;
 	}
-	
-	public function getListaEstabelecimentos() {
-		return $this->listaEstabelecimentos;
+    
+    public function getLinkMapa() {
+		return $this->linkMapa;
 	}
 	
-	public function getListaEventos() {
-		return $this->listaEventos;
-	}
 	    
     // setters
     public function setId($id) {
@@ -63,19 +61,20 @@ class Estacao {
 		$this->longitude = $longitude;
 	}
     
-	public function setListaEstabelecimentos($listaEstabelecimentos) {
-		$this->listaEstabelecimentos = $listaEstabelecimentos;
+    public function setLinkMapa($linkMapa) {
+		$this->linkMapa = $linkMapa;
 	}
-	
-	public function setListaEventos($listaEventos) {
-		$this->listaEventos = $listaEventos;
-	}
-	
+    
 	public function loadListasAtracoes() {
 		$estabelecimentoDAO = new EstabelecimentoDAO;
 		$eventoDAO = new EventoDAO;
+        /*
 		$this->setListaEstabelecimentos($estabelecimentoDAO->gerarListaEstabelecimentos($this));
 		$this->setListaEventos($eventoDAO->gerarListaEventos($this));
+        */
+        $this->listaEstabelecimentos = $estabelecimentoDAO->gerarListaEstabelecimentos($this);
+		$this->listaEventos = $eventoDAO->gerarListaEventos($this);
+
 	}
 	
 }

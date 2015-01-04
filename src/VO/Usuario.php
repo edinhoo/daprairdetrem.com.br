@@ -11,6 +11,21 @@ class Usuario {
     private $bairro;
     private $email;
         
+    public function __construct($idUsuario=null, $idFacebook=null, $idGoogle=null, $nome=null, $sobrenome=null, 
+    							$genero=null, $aniversario=null, $cidade=null, $bairro=null, $email=null)
+    {
+    	$this->idUsuario = $idUsuario;
+    	$this->idFacebook = $idFacebook;
+    	$this->idGoogle = $idGoogle;
+    	$this->nome = $nome;
+    	$this->sobrenome = $sobrenome;
+    	$this->genero = $genero;
+    	$this->aniversario = $aniversario;
+    	$this->cidade = $cidade;
+    	$this->bairro = $bairro;
+    	$this->email = $email;
+    }
+        
     // getters
     public function getIdUsuario() {
 		return $this->idUsuario;

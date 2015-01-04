@@ -17,8 +17,10 @@ abstract class Atracao {
     public $listaImagens;
     
     /*
-    protected function __construct($id, $nome, $dataInclusao, $endereco, $latitude, $longitude,
-    								$linkMapa, $website, $vizualizacoes, $idUsuario, $idEstacao) {
+    protected function __construct ($id=null, $nome=null, $dataInclusao=null, $endereco=null,
+    								$latitude=null, $longitude=null, $linkMapa=null, $website=null,
+    								$vizualizacoes=null, $idUsuario=null, $idEstacao=null) 
+    {
     	$this->id = $id;
     	$this->nome = $nome;
     	$this->dataInclusao = $dataInclusao;
