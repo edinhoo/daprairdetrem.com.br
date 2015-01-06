@@ -34,12 +34,15 @@ class EventoDAO extends AtracaoDAO {
         try { 
             $this->conexao->beginTransaction(); 
             $stmt->execute($eventoArray); 
+        	$objeto->setId($this->conexao->lastInsertId());  
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
-        }          
+        }
+
+        return $objeto;
 	}
 
 	// Busca um evento por id

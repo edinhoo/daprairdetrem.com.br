@@ -38,7 +38,8 @@ class UsuarioDAO extends DAO{
         
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($usuarioArray); 
+            $stmt->execute($usuarioArray);
+            $objeto->setId($this->conexao->lastInsertId());
             $this->conexao->commit();
         }
         
@@ -46,7 +47,8 @@ class UsuarioDAO extends DAO{
             $this->conexao->rollback(); 
         } 
         
-        $id_usuario = $this->retornarIdUsuario($usuario->getIdGoogle(), $usuario->getIdFacebook());
+        //$id_usuario = $this->retornarIdUsuario($usuario->getIdGoogle(), $usuario->getIdFacebook());
+        $id_usuario = $objeto->getId();
 
         $query = "INSERT INTO Papeis (id_usuario, id_permissao) VALUES (?, ?)";
         $stmt = $this->conexao->prepare($query);
@@ -65,7 +67,7 @@ class UsuarioDAO extends DAO{
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
         } 
-      
+        return $objeto;
 	}
     
     // Impede a exclusao de usuarios
@@ -136,11 +138,13 @@ class UsuarioDAO extends DAO{
                 $usuario->setEmail($linha[9]);
             }
             if ($usuario->getId() === null) {
-                $this->novoUsuario($usuario);
+                $usuario = $this->novoUsuario($usuario);
+                /*
                 $query = "SELECT id FROM Usuarios WHERE id_facebook=" . $id_facebook;
                 foreach($this->conexao->query($query) as $linha) {
                     $usuario->setId($linha[0]); 
-                }
+                }*/
+
             }
             return $usuario;
         }
@@ -158,11 +162,13 @@ class UsuarioDAO extends DAO{
         }
 
         if ($usuario->getId() === null) {
-            $this->novoUsuario($usuario);
+            $usuario = $this->novoUsuario($usuario);
+            /*
             $query = "SELECT id FROM Usuarios WHERE id_google=" . $id_google;
             foreach($this->conexao->query($query) as $linha) {
                     $usuario->setId($linha[0]); 
             }
+            */
         }
         return $usuario;
     }

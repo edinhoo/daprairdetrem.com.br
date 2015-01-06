@@ -13,6 +13,17 @@ class Estacao {
     private $linkMapa;
     public $listaEstabelecimentos;
     public $listaEventos;
+
+    public function __construct	($id=null, $nome=null, $endereco=null,
+    							 $latitude=null, $longitude=null, $linkMapa=null) 
+    {
+    	$this->id = $id;
+    	$this->nome = $nome;
+    	$this->endereco = $endereco;
+    	$this->latitude = $latitude;
+    	$this->longitude = $longitude;
+    	$this->linkMapa = $linkMapa;
+    }
     
     // getters
     public function getId() {

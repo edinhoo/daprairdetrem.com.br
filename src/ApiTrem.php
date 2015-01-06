@@ -32,35 +32,28 @@ class ApiTrem {
 		switch ($classe) {
 			case 'Estacao':
 				$estacaoDAO = new EstacaoDAO;
-				$estacaoDAO->gravar($objeto);
-				break;
+				return $estacaoDAO->gravar($objeto);
 			case 'Estabelecimento':
 				$estabelecimentoDAO = new EstabelecimentoDAO;
-				$estabelecimentoDAO->gravar($objeto);
-				break;
+				return $estabelecimentoDAO->gravar($objeto);
 			case 'Evento':
 				$eventoDAO = new EventoDAO;
-				$eventoDAO->gravar($objeto);
-				break;
+				return $eventoDAO->gravar($objeto);
 			case 'Avaliacao':
 				$avaliacaoDAO = new AvaliacaoDAO;
-				$avaliacaoDAO->gravar($objeto);
-				break;
+				return $avaliacaoDAO->gravar($objeto);
 			case 'Comentario':
 				$comentarioDAO = new ComentarioDAO;
-				$comentarioDAO->gravar($objeto);
-				break;
+				return $comentarioDAO->gravar($objeto);
 			case 'Imagem':
 				$imagemDAO = new ImagemDAO;
-				$imagemDAO->gravar($objeto);
-				break;
+				return $imagemDAO->gravar($objeto);
 			case 'Video':
 				$videoDAO = new VideoDAO;
-				$videoDAO->gravar($objeto);
-				break;
+				return $videoDAO->gravar($objeto);
 		}
 
-		return true;
+		return null;
 	}
 
 	// Altera os dados de um objeto por seu id

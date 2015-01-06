@@ -1,4 +1,4 @@
-<?PHP
+<?php
 abstract class Atracao {
     private $id;
     private $nome;
@@ -16,7 +16,7 @@ abstract class Atracao {
     public $listaVideos;
     public $listaImagens;
     
-    /*
+    
     protected function __construct ($id=null, $nome=null, $dataInclusao=null, $endereco=null,
     								$latitude=null, $longitude=null, $linkMapa=null, $website=null,
     								$vizualizacoes=null, $idUsuario=null, $idEstacao=null) 
@@ -33,7 +33,6 @@ abstract class Atracao {
     	$this->idUsuario = $idUsuario;
     	$this->idEstacao = $idEstacao;
     }
-	*/
 
     // getters
     public function getId() {

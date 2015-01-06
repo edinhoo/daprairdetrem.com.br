@@ -27,14 +27,15 @@ class AvaliacaoDAO extends ConteudoDAO {
         
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($avaliacaoArray); 
+            $stmt->execute($avaliacaoArray);
+            $objeto->setId($this->conexao->lastInsertId());
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
         }  
-        
+        return $objeto;
 	}
 
 	// Retorna uma lista com todas as midias de um estabelecimento ou evento,

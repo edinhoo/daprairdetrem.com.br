@@ -27,14 +27,15 @@ class ComentarioDAO extends ConteudoDAO {
         
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($comentarioArray); 
+            $stmt->execute($comentarioArray);
+            $objeto->setId($this->conexao->lastInsertId());
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
-        }  
-        
+        }
+        return $objeto;
 	}
 
 	// Retorna uma lista com todas as midias de um estabelecimento ou evento,

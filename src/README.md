@@ -1,6 +1,20 @@
 API Dá pra ir de trem
 ====================
 
+Estrutura de dados
+----------
+Todos os objetos utilizados como parâmetros de entrada ou retorno são das seguintes classes, implementadas sob *VO*:
+
+- *Estacao*
+- *Estabelecimento*
+- *Evento*
+- *Avaliacao*
+- *Comentario*
+- *Imagem*
+- *Video* 
+
+Informações adicionais sobre atributos, construtores e formas de acesso encontram-se na documentação da pasta *VO*
+
 Métodos
 ----------
 - *gravarConteudo($objeto, $usuario)*
@@ -13,6 +27,7 @@ Métodos
     - *Imagem*
     - *Video*
   - *$usuario* é membro da classe *Usuario* e serve para verificar se o usuário solicitante possui as permissões necessárias para executar a operação
+  - Caso a gravação seja bem sucedida, o método retorna *$objeto* com seu *id* associado. Caso contrário, retorna nulo
 
 - *atualizarConteudo($objeto, $usuario)*
   - Sobrescreve um conteúdo do BD. A busca é feita através do *id*, portanto o atributo *id* não pode ser nulo. Os parâmetros são os mesmos de *gravarConteudo()*

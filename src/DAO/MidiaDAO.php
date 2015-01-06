@@ -37,13 +37,15 @@ abstract class MidiaDAO extends ConteudoDAO {
         
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($midiaArray); 
+            $stmt->execute($midiaArray);
+            $objeto->setId($this->conexao->lastInsertId());
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
-        }       
+        }
+        return $objeto;   
 	}
 
 

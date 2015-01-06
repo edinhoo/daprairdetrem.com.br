@@ -56,13 +56,15 @@ class EstacaoDAO extends DAO {
 
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($estacaoArray); 
+            $stmt->execute($estacaoArray);
+            $objeto->setId($this->conexao->lastInsertId());
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
-        } 
+        }
+        return $objeto;
 	}
 
 	// Atualiza os dados de uma estacao

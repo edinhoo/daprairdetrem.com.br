@@ -49,14 +49,16 @@ class EstabelecimentoDAO extends AtracaoDAO {
         
         try { 
             $this->conexao->beginTransaction(); 
-            $stmt->execute($estabelecimentoArray); 
+            $stmt->execute($estabelecimentoArray);
+            $objeto->setId($this->conexao->lastInsertId()); 
             $this->conexao->commit();
         }
         
         catch(PDOExecption $e) { 
             $this->conexao->rollback(); 
-        }  
-        
+        }
+
+        return $objeto;
 	}
 
     // Busca um estabelecimento por id

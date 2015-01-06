@@ -6,8 +6,7 @@ class Estabelecimento extends Atracao {
     private $ehRestaurante;
     private $ehCentroCultural;
     
-    // Verificar function overloading
-    /*
+    
     public function __construct($id=null, $nome=null, $dataInclusao=null, $endereco=null,
     							$latitude=null, $longitude=null, $linkMapa=null, $website=null,
     							$vizualizacoes=null, $idUsuario=null, $idEstacao=null,
@@ -19,7 +18,6 @@ class Estabelecimento extends Atracao {
     	$this->ehRestaurante = $ehRestaurante;
     	$this->ehCentroCultural = $ehCentroCultural;
     }
-    */
 
     // getters
     public function getEhBar() {
