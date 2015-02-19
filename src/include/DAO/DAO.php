@@ -1,4 +1,6 @@
 <?php
+require_once (dirname(__FILE__))."/../config.php";
+
 abstract class DAO {
     protected $conexao;
     private $host;
@@ -12,10 +14,15 @@ abstract class DAO {
     
     // Construtor. Inicializa as variaveis de conexao
     public function DAO () {
-		$this->host = "localhost";
-		$this->usuario = "root";
-		$this->senha = "1234";
-		$this->database = "daprairdetrem";
+		// $this->host = "localhost";
+		// $this->usuario = "root";
+		// $this->senha = "1234";
+		// $this->database = "daprairdetrem";
+        $this->host = DB_HOST;
+        $this->usuario = DB_USUARIO;
+        $this->senha = DB_SENHA;
+        $this->database = DB_DATABASE;
+        
 		//$this->tam_tab_permissoes = 16;
 	}
 	

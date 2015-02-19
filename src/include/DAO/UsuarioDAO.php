@@ -1,7 +1,7 @@
 <?php
 require_once "DAO.php";
 require_once (dirname(__FILE__))."/../VO/Usuario.php";
-require_once (dirname(__FILE__))."/../constantes.php";
+//require_once (dirname(__FILE__))."/../constantes.php";
 
 class UsuarioDAO extends DAO{
 	// Impede a gravacao de usuarios atraves deste metodo

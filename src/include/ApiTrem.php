@@ -20,6 +20,64 @@ require_once "VO/Video.php";
 
 class ApiTrem {
 
+	// Converte a linha do trem para uma array no formato JSON
+	// Parametros:
+	//	linha: resposta do metodo carregarLinhaTrem()
+	// Retorna:
+	//	array com a estrutura de $linha no formato JSON
+	public function linhaTremParaJson($linha) {
+		$json_linha = array();
+		$lista_imagens = array();
+		$lista_videos = array();
+		$midias = array();
+
+		$lista_imagens['atracoes'] = $this->converterArrayParaJson($linha['imagens']['atracoes']);
+		$lista_imagens['midias'] = $this->converterArrayParaJson($linha['imagens']['midias']);
+
+		$lista_videos['atracoes'] = $this->converterArrayParaJson($linha['videos']['atracoes']);
+		$lista_videos['midias'] = $this->converterArrayParaJson($linha['videos']['midias']);
+		
+		// $json_linha populada com midias selecionadas
+		$json_linha['imagens'] = $lista_imagens;
+		$json_linha['videos'] = $lista_videos;
+
+		return $json_linha;
+    }
+
+    // Converte um array de objetos para um array no formato JSON
+	// Parametros:
+	//	array: array de objetos
+	// Retorna:
+	//	array de objetos no formato JSON
+	public function converterArrayParaJson($array) {
+		$json_array = array();
+		for ($i = 0; $i < count($array); $i++) { 
+			array_push($json_array, $this->converterObjetoParaJson($array[$i]));
+		}
+		return $json_array;
+    }
+
+	// Converte um objeto com atributos privados em um array no formato JSON
+	// Parametros:
+	//	objeto: objeto qualquer com getters
+	// Retorna:
+	//	array com os atributos do objeto no formato JSON
+	public function converterObjetoParaJson($objeto) {
+        $metodos = get_class_methods($objeto);
+        $num_metodos = count($metodos);
+        $json = array();
+
+        for ($i = 0; $i < $num_metodos; $i++) { 	
+            if (strpos($metodos[$i], "get") !== false) {
+            	$metodo = $metodos[$i];
+            	$chave = lcfirst(substr($metodo, 3));
+
+                $json[$chave] = $objeto->$metodo();
+            }
+        }
+        return $json;
+    }
+
 	// Armazena um novo objeto
 	// Parametros:
 	//	objeto: objeto da classe: 

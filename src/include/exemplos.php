@@ -1,22 +1,21 @@
 <?php
 
-require_once 'ApiTrem.php';
+require_once "ApiTrem.php";
 require_once "VO/Usuario.php";
 require_once "VO/Estacao.php";
-require_once "VO/Estabelecimento.php";
-require_once "VO/Evento.php";
+require_once "VO/Estabelecimento.php"; // ok
+require_once "VO/Evento.php";   // ok
 require_once "VO/Avaliacao.php";
 require_once "VO/Comentario.php";
 require_once "VO/Imagem.php";
 require_once "VO/Video.php";
 
-require_once "DAO/ImagemDAO.php";
-
 
     $apiTrem = new ApiTrem;
   //  $imagemDAO = new ImagemDAO;
   
-    //$estabelecimento = new Estabelecimento(0, "abc", "cde", 1.1, 0.1, "fgh", '2011-12-11', 1,1,1,1,1);
+/*    $evento = new Evento(1, "abc", "2011-02-02", "endereco", 81.937790, 81.937790, "linkMapa", "site", 0, 1,1,"info");
+
     //$estabelecimento = new Estabelecimento(1, 0, 1);
     $estabelecimento = new Estabelecimento;
     $imagem = new Imagem;
@@ -25,9 +24,11 @@ require_once "DAO/ImagemDAO.php";
 
     $imagem->setId(3);
 
+
+
   //  $imagens = $imagemDAO->buscarMidiasSelecionadas();
     //print($imagens[0]->getIdEstabelecimento());
-    /*
+    
     $estabelecimento->setId(8);
     $estabelecimento->setNome("estabelecimento 999");
     $estabelecimento->setEndereco("algum lugar");
@@ -41,37 +42,19 @@ require_once "DAO/ImagemDAO.php";
     $estabelecimento->setEhBar(false);
     $estabelecimento->setEhRestaurante(false);
     $estabelecimento->setEhCentroCultural(false);
-    */    
+        
 
     //$apiTrem->apagarConteudo($imagem, $usuario);
+    $estabelecimento = $apiTrem->gravarConteudo($estabelecimento, $estabelecimento);
     $midias = $apiTrem->carregarLinhaTrem(5);
-    print(sizeof($midias['videos']['midias']));
-    //for ($i=0; $i < $midias['imagens']['midias']; $i++) { 
-     //   print(sizeof($midias['imagens']['midias'], COUNT_RECURSIVE));
-        //print($midias['imagens']['midias'][$i]->getId() . ' ');
-    //}
+    //print(sizeof($midias['videos']['midias']));
+    print($estabelecimento->getId());
+  */
+
+    $imagens = $apiTrem->gerarListaImagensAleatorias(5);
+    //print_r($apiTrem->converterObjetoParaJson($imagens[0]));
+    print_r($apiTrem->converterArrayParaJson($imagens));
     
-    
-    //print($imagens[0]->getId() . "\n");
-    //print($imagens[1]->getId() . "\n");
-    //print($imagens[2]->getId() . "\n");
-    
-    //print(get_class($imagens));
-
-
-    //$estabelecimento->setInfoEstabelecimento("lerolero");
-    
-    
-
-
-   // print(true);
-   
-    //print($estabelecimento->getEhBar());
-
-    //print(sizeof($estabelecimentos));
-
-
-    //print(sizeof($estabelecimento->listaComentarios) . ' ' . sizeof($estabelecimento->listaAvaliacoes) . ' ' . sizeof($estabelecimento->listaImagens) . ' ' . sizeof($estabelecimento->listaVideos));
-
-        
+    //print(json_encode($apiTrem->convertToJson($imagens[0])));
+   // print(json_encode($imagens[0]->getIdUsuario()));
 ?>
