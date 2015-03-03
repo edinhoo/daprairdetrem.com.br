@@ -1,13 +1,13 @@
 <?php
-/*
-define('URL', 'http://localhost/trem');
+
+define('URL', 'http://localhost/~caiotaniguchi');
 define('JS', URL.'/js');
 define('CSS', URL.'/css');
 define('IMG', URL.'/img');
 
 
 require 'vendor/autoload.php';
-include 'template/header.php';
+include 'templates/header.php';
 
 $uri = $_SERVER['REQUEST_URI'];
 $array_uri = explode('/', $uri);
@@ -17,59 +17,75 @@ if ($page == '') {
 	$page = 'home';
 }
 
-if ( file_exists('template/'.$page.'.php') ) {
-	include 'template/'.$page.'.php';
+if ( file_exists('templates/'.$page.'.php') ) {
+	include 'templates/'.$page.'.php';
 } 
 else {
-	include 'template/404.php';
+	include 'templates/404.php';
 }
 
-include 'template/footer.php'; 
-*/
+include 'templates/footer.php'; 
+
+
+
 require 'vendor/autoload.php';
 require 'src/include/ApiTrem.php';
 
-$app = new \Slim\Slim();
-$app->response->headers->set('Content-Type', 'application/json');
+// Carrega o namespace Slim
+use Slim\Slim;
 
-$app->get('/', function () use ($app) {
-	$api = new ApiTrem;
+$app = new Slim();
 
-	echo json_encode($api->converterArrayParaJson($api->gerarListaImagensAleatorias(10)));
-    $app->render('home.php'); 
-});
+// Definicao de rotas
+$app->get('/','carregarImagensHome');
+$app->get('/adicione', function () {});
+$app->get('/busca', function () {});
+$app->get('/locais/:id','carregarEstabelecimento');
+$app->get('/eventos/:id','carregarEvento');
+$app->get('/footer', function () {});
+$app->get('/header', function () {});
+$app->get('/pegue-o-trem', 'carregarLinhaTrem');
+$app->get('/sobre', function () {});
+$app->notFound(function () {});
 
-$app->get('/adicione', function () use ($app) {
-    $app->render('adicione.php');
-});
-
-$app->get('/busca', function () use ($app) {
-    $app->render('busca.php');
-});
-
-$app->get('/footer', function () use ($app) {
-    $app->render('footer.php');
-});
-
-$app->get('/header', function () use ($app) {
-    $app->render('header.php'); 
-});
-
-$app->get('/pegue-o-trem', function () use ($app) {
-	$api = new ApiTrem;
-
-	echo json_encode($api->linhaTremParaJson($api->carregarLinhaTrem(10)));
-    $app->render('pegue-o-trem.php'); 
-});
-
-$app->get('/sobre', function () use ($app) {
-    $app->render('sobre.php'); 
-});
-
-$app->notFound(function () use ($app) {
-    $app->render('404.php');
-});
+$app->post('/adicione', 'adicionarConteudo');
 
 $app->run();
+
+function adicionarConteudo($json) {
+	$api = new ApiTrem;
+	$app = Slim::getInstance();
+	$app->contentType('application/json');
+}
+
+function carregarLinhaTrem() {
+	$api = new ApiTrem;
+	$app = Slim::getInstance();
+	$app->contentType('application/json');
+	echo json_encode($api->converterLinhaTremParaJson($api->carregarLinhaTrem(10)));
+}
+
+function carregarImagensHome() {
+	$api = new ApiTrem;
+	$app = Slim::getInstance();
+	$app->contentType('application/json');
+	echo json_encode($api->converterArrayParaJson($api->gerarListaImagensAleatorias(10)));
+}
+
+function carregarEstabelecimento($id) {
+	$api = new ApiTrem;
+	$app = Slim::getInstance();
+	$app->contentType('application/json');
+	echo json_encode($api->converterAtracaoParaJson($api->carregarEstabelecimento($id)));
+}
+
+function carregarEvento($id) {
+	$api = new ApiTrem;
+	$app = Slim::getInstance();
+	$app->contentType('application/json');
+	echo json_encode($api->converterAtracaoParaJson($api->carregarEvento($id)));
+}
+
+
 
 ?>

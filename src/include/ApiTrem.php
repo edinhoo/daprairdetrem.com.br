@@ -19,13 +19,27 @@ require_once "VO/Imagem.php";
 require_once "VO/Video.php";
 
 class ApiTrem {
+	public function converterJsonParaObjeto($json) {
+		$array = json_decode($json, true);
+		
+	}
+
+	public function converterAtracaoParaJson($atracao) {
+		$json = array();
+		$json = $this->converterObjetoParaJson($atracao);
+		$json['listaComentarios'] = $this->converterArrayParaJson($atracao->listaComentarios);
+		$json['listaAvaliacoes'] = $this->converterArrayParaJson($atracao->listaAvaliacoes);
+		$json['listaImagens'] = $this->converterArrayParaJson($atracao->listaImagens);
+		$json['listaVideos'] = $this->converterArrayParaJson($atracao->listaVideos);
+		return $json;
+	}
 
 	// Converte a linha do trem para uma array no formato JSON
 	// Parametros:
 	//	linha: resposta do metodo carregarLinhaTrem()
 	// Retorna:
 	//	array com a estrutura de $linha no formato JSON
-	public function linhaTremParaJson($linha) {
+	public function converterLinhaTremParaJson($linha) {
 		$json_linha = array();
 		$lista_imagens = array();
 		$lista_videos = array();
@@ -218,20 +232,24 @@ class ApiTrem {
 		return $imagemDAO->gerarListaImagensAleatorias($num_imagens);
 	}
 
-	// Carrega todo o conteudo de uma atracao
+	// Carrega um estabelecimento e todo o seu conteudo
 	// Parametros:
-	//	atracao: objeto das classes Estabelecimento ou Evento
-	public function carregarAtracao($atracao) {
-		if (!strcmp(get_class($atracao), "Evento")) {
-			$eventoDAO = new eventoDAO;
-
-			$eventoDAO->carregarConteudo($atracao);
-			return $atracao;
-		}
-
+	//	id: id do estabelecimento
+	public function carregarEstabelecimento($id) {
 		$estabelecimentoDAO = new EstabelecimentoDAO;
-		$estabelecimentoDAO->carregarConteudo($atracao);
-		return $atracao;
+		$estabelecimento = $estabelecimentoDAO->buscarPorId($id);
+		$estabelecimentoDAO->carregarConteudo($estabelecimento);
+		return $estabelecimento;
+	}
+
+	// Carrega um evento e todo o seu conteudo
+	// Parametros:
+	//	id: id do evento
+	public function carregarEvento($id) {
+		$eventoDAO = new EventoDAO;
+		$evento = $eventoDAO->buscarPorId($id);
+		$eventoDAO->carregarConteudo($evento);
+		return $evento;
 	}
 
 	// Carrega a linha do trem com conteudos selecionados
