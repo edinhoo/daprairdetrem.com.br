@@ -3,7 +3,7 @@
 	
 	// Configuracoes do BD
 	define('DB_USUARIO', 'root');
-	define('DB_SENHA', '1234');
+	define('DB_SENHA', '');
 	define('DB_HOST', 'localhost');
 	define('DB_DATABASE', 'daprairdetrem');
 	 

@@ -1,9 +1,9 @@
 <?php
 
-define('URL', 'http://localhost/~caiotaniguchi');
-define('JS', URL.'/js');
-define('CSS', URL.'/css');
-define('IMG', URL.'/img');
+define('URL', 'http://localhost/trem');
+define('JS', URL.'/templates/js');
+define('CSS', URL.'/templates/css');
+define('IMG', URL.'/templates/img');
 
 
 require 'vendor/autoload.php';
