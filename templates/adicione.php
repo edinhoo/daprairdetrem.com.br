@@ -2,7 +2,7 @@
 
 <h1>Adicione um novo local</h1>
 
-<form>
+<form id="formAdicione" action="http://localhost/trem/adicione" >
 	<label>
 		Nome: <input type="text" name="nome" placeholder="Bar da Maria">
 	</label>
@@ -12,7 +12,7 @@
 	</label>
 	<br>
 	<label>
-		Site: <input type="text" name="www.bardamaria.com.br">
+		Site: <input type="text" name="site" placeholder="www.bardamaria.com.br">
 	</label>
 	<br>
 	<label>
