@@ -8,7 +8,7 @@ abstract class Atracao {
     private $longitude;
     private $linkMapa;
     private $website;
-    private $vizualizacoes;
+    private $visualizacoes;
     private $idUsuario;
     private $idEstacao;
     public $listaComentarios;
@@ -19,7 +19,7 @@ abstract class Atracao {
     
     protected function __construct ($id=null, $nome=null, $dataInclusao=null, $endereco=null,
     								$latitude=null, $longitude=null, $linkMapa=null, $website=null,
-    								$vizualizacoes=null, $idUsuario=null, $idEstacao=null) 
+    								$visualizacoes=null, $idUsuario=null, $idEstacao=null) 
     {
     	$this->id = $id;
     	$this->nome = $nome;
@@ -29,7 +29,7 @@ abstract class Atracao {
     	$this->longitude = $longitude;
     	$this->linkMapa = $linkMapa;
     	$this->website = $website;
-    	$this->vizualizacoes = $vizualizacoes;
+    	$this->visualizacoes = $visualizacoes;
     	$this->idUsuario = $idUsuario;
     	$this->idEstacao = $idEstacao;
     }
@@ -67,8 +67,8 @@ abstract class Atracao {
 		return $this->website;
 	}
     
-    public function getVizualizacoes() {
-		return $this->vizualizacoes;
+    public function getVisualizacoes() {
+		return $this->visualizacoes;
 	}
 	
     public function getIdUsuario() {
@@ -113,8 +113,8 @@ abstract class Atracao {
 		$this->website = $website;
 	}
     
-    public function setVizualizacoes($vizualizacoes) {
-		return $this->vizualizacoes = $vizualizacoes;
+    public function setVisualizacoes($visualizacoes) {
+		return $this->visualizacoes = $visualizacoes;
 	}
 	
 	public function setIdUsuario($idUsuario) {

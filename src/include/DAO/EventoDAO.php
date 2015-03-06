@@ -8,11 +8,13 @@ class EventoDAO extends AtracaoDAO {
 	// Grava um novo evento
 	// Parametros:
 	//	objeto: objeto da classe Evento
+	// Retorna:
+	//	objeto: os mesmos dados de entrada e o id gerado
     public function gravar($objeto) {
 		$this->conectar();
 		$eventoArray = array();
         		
-        $query = "INSERT INTO Eventos (nome, data_inclusao, endereco, latitude, longitude, link_mapa, website, vizualizacoes,
+        $query = "INSERT INTO Eventos (nome, data_inclusao, endereco, latitude, longitude, link_mapa, website, visualizacoes,
         								id_usuario, id_estacao, info_evento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $this->conexao->prepare($query);
@@ -24,7 +26,7 @@ class EventoDAO extends AtracaoDAO {
         $eventoArray[4] = $objeto->getLongitude();
         $eventoArray[5] = $objeto->getLinkMapa();
         $eventoArray[6] = $objeto->getWebsite();
-        //$eventoArray[7] = $objeto->getVizualizacoes();
+        //$eventoArray[7] = $objeto->getVisualizacoes();
         $eventoArray[7] = 0;
         $eventoArray[8] = $objeto->getIdUsuario();
         $eventoArray[9] = $objeto->getIdEstacao();    
@@ -63,7 +65,7 @@ class EventoDAO extends AtracaoDAO {
 			$evento->setLongitude($linha[5]);
 			$evento->setLinkMapa($linha[6]);
 			$evento->setWebsite($linha[7]);
-			$evento->setVizualizacoes($linha[8]);			
+			$evento->setVisualizacoes($linha[8]);			
 			$evento->setIdUsuario($linha[9]);
 			$evento->setIdEstacao($linha[10]);
 			$evento->setInfoEvento($linha[11]);
@@ -92,7 +94,7 @@ class EventoDAO extends AtracaoDAO {
 			$eventos[$i]->setLongitude($linha[5]);
 			$eventos[$i]->setLinkMapa($linha[6]);
 			$eventos[$i]->setWebsite($linha[7]);
-			$eventos[$i]->setVizualizacoes($linha[8]);			
+			$eventos[$i]->setVisualizacoes($linha[8]);			
 			$eventos[$i]->setIdUsuario($linha[9]);
 			$eventos[$i]->setIdEstacao($linha[10]);
 			$eventos[$i]->setInfoEvento($linha[11]);
@@ -118,7 +120,7 @@ class EventoDAO extends AtracaoDAO {
         				 link_mapa = ?,
         				 website = ?,
         				 id_estacao = ?,
-        				 vizualizacoes = ?
+        				 visualizacoes = ?
         		   WHERE id = ?";		
 		
         $stmt = $this->conexao->prepare($query);
@@ -129,7 +131,7 @@ class EventoDAO extends AtracaoDAO {
         $eventoArray[3] = $objeto->getLongitude();
         $eventoArray[4] = $objeto->getLinkMapa();
         $eventoArray[5] = $objeto->getWebsite();
-        $eventoArray[6] = $objeto->getVizualizacoes();
+        $eventoArray[6] = $objeto->getVisualizacoes();
         $eventoArray[7] = $objeto->getIdEstacao();
         $eventoArray[8] = $objeto->getId();
 
@@ -165,7 +167,7 @@ class EventoDAO extends AtracaoDAO {
 			$eventos[$i]->setLongitude($linha[5]);
 			$eventos[$i]->setLinkMapa($linha[6]);
 			$eventos[$i]->setWebsite($linha[7]);
-			$eventos[$i]->setVizualizacoes($linha[8]);			
+			$eventos[$i]->setVisualizacoes($linha[8]);			
 			$eventos[$i]->setIdUsuario($linha[9]);
 			$eventos[$i]->setIdEstacao($linha[10]);
 			$eventos[$i]->setInfoEvento($linha[11]);

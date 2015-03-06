@@ -12,6 +12,8 @@ abstract class MidiaDAO extends ConteudoDAO {
 	// Grava uma nova midia
 	// Parametros:
 	//	objeto: objeto das classes Imagem ou Video
+	// Retorna:
+	//	objeto: os mesmos dados de entrada e o id gerado
     public function gravar($objeto) {
 		$this->conectar();
 		$midiaArray = array();

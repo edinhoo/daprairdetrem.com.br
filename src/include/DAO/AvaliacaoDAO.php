@@ -9,6 +9,8 @@ class AvaliacaoDAO extends ConteudoDAO {
 	// Grava uma nova avaliacao
 	// Parametros:
 	//	objeto: objeto da classe Avaliacao
+	// Retorna:
+	//	objeto: os mesmos dados de entrada e o id gerado
     public function gravar($objeto) {
 		$this->conectar();
 		$avaliacaoArray = array();

@@ -34,7 +34,7 @@ CREATE TABLE Permissoes (
     excluir_conteudo BOOL NOT NULL,
     excluir_atracao_propria BOOL NOT NULL,
     excluir_conteudo_proprio BOOL NOT NULL
---  vizualizar BOOL NOT NULL,
+--  visualizar BOOL NOT NULL,
 --  excluir_info_propria BOOL NOT NULL
 --  adicionar_linha BOOL NOT NULL,
 --  alterar_linha BOOL NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE Estabelecimentos (
     longitude FLOAT(10, 6) NOT NULL,
     link_mapa TEXT NOT NULL,
     website VARCHAR(255),
-    vizualizacoes INT NOT NULL,
+    visualizacoes INT NOT NULL,
     id_usuario INT UNSIGNED NOT NULL REFERENCES Usuarios (id_usuario),
     id_estacao SMALLINT UNSIGNED NOT NULL REFERENCES Estacoes (id),
     eh_bar BOOL NOT NULL,
@@ -172,7 +172,7 @@ CREATE TABLE Eventos (
     longitude FLOAT(10, 6) NOT NULL,
     link_mapa TEXT NOT NULL,
     website VARCHAR(255),
-    vizualizacoes INT NOT NULL,
+    visualizacoes INT NOT NULL,
     id_usuario INT UNSIGNED NOT NULL REFERENCES Usuarios (id_usuario),
     id_estacao SMALLINT UNSIGNED NOT NULL REFERENCES Estacoes (id),
     info_evento TEXT NOT NULL
@@ -233,11 +233,11 @@ VALUES  ("Estacao 1", "Alguma Rua 1", 141.140338, 141.140338, "link_maps"),
         ("Estacao 3", "Alguma Rua 3", 141.140338, 141.140338, "link_maps");
 
 
-INSERT INTO Estabelecimentos (`nome`, `data_inclusao`, `endereco`, `latitude`, `longitude`, `link_mapa`, `website`, `vizualizacoes`, `id_usuario`, `id_estacao`, `eh_bar`, `eh_restaurante`, `eh_centro_cultural`)
+INSERT INTO Estabelecimentos (`nome`, `data_inclusao`, `endereco`, `latitude`, `longitude`, `link_mapa`, `website`, `visualizacoes`, `id_usuario`, `id_estacao`, `eh_bar`, `eh_restaurante`, `eh_centro_cultural`)
 VALUES  ("Bar do Fulano", '1997-11-11', "Alguma Rua 1", 141.140338, 141.140338, "link_maps", "algum_site", 0, 1, 1, TRUE, TRUE, TRUE),
         ("Bar do Ciclano", '1999-01-22', "Alguma Rua 2", 141.140338, 141.140338, "link_maps", "algum_site", 0, 1, 1, FALSE, FALSE, FALSE);
 
-INSERT INTO Eventos (`nome`, `data_inclusao`, `endereco`, `latitude`, `longitude`, `link_mapa`, `website`, `vizualizacoes`, `id_usuario`, `id_estacao`, `info_evento`)
+INSERT INTO Eventos (`nome`, `data_inclusao`, `endereco`, `latitude`, `longitude`, `link_mapa`, `website`, `visualizacoes`, `id_usuario`, `id_estacao`, `info_evento`)
 VALUES  ("Evento A", '1999-01-22', "Alguma Rua 2", 141.140338, 141.140338, "link_maps", "algum_site", 0, 1, 1, "descricao_evento"),
         ("Evento B", '1999-01-22', "Alguma Rua 2", 141.140338, 141.140338, "link_maps", "algum_site", 0, 1, 1, "descricao_evento");
 

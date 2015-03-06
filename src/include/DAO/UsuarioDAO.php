@@ -17,6 +17,8 @@ class UsuarioDAO extends DAO{
     // Cria um novo usuario
     // Parametros:
     //  usuario: objeto da classe Usuario
+    // Retorna:
+    //  objeto: os mesmos dados de entrada e o id gerado
     private function novoUsuario($usuario) {
 		$this->conectar();
 		$usuarioArray = array();

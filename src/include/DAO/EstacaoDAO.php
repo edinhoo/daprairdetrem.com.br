@@ -39,6 +39,8 @@ class EstacaoDAO extends DAO {
     // Grava uma nova estacao
 	// Parametros:
 	//	objeto: objeto da classe Estacao
+	// Retorna:
+	//	objeto: os mesmos dados de entrada e o id gerado
     public function gravar($objeto) {
 		$this->conectar();
 		$estacaoArray = array();

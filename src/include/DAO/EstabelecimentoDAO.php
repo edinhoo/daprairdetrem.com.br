@@ -7,12 +7,14 @@ class EstabelecimentoDAO extends AtracaoDAO {
     // Grava um novo estabelecimento
     // Parametros:
     //  objeto: objeto da classe Estabelecimento
+    // Retorna:
+    //  objeto: os mesmos dados de entrada e o id gerado
     public function gravar($objeto) {
 		$this->conectar();
 		$estabelecimentoArray = array();
         		
         $query = "INSERT INTO Estabelecimentos (nome, eh_bar, eh_restaurante, eh_centro_cultural, data_inclusao,
-        										endereco, latitude, longitude, link_mapa, vizualizacoes, id_usuario,
+        										endereco, latitude, longitude, link_mapa, visualizacoes, id_usuario,
         										id_estacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $this->conexao->prepare($query);
@@ -42,7 +44,7 @@ class EstabelecimentoDAO extends AtracaoDAO {
         $estabelecimentoArray[6] = $objeto->getLatitude();
         $estabelecimentoArray[7] = $objeto->getLongitude();
         $estabelecimentoArray[8] = $objeto->getLinkMapa();
-        //$estabelecimentoArray[9] = $objeto->getVizualizacoes();
+        //$estabelecimentoArray[9] = $objeto->getVisualizacoes();
         $estabelecimentoArray[9] = 0;
         $estabelecimentoArray[10] = $objeto->getIdUsuario();
         $estabelecimentoArray[11] = $objeto->getIdEstacao();    
@@ -80,7 +82,7 @@ class EstabelecimentoDAO extends AtracaoDAO {
             $estabelecimento->setLongitude($linha[5]);
             $estabelecimento->setLinkMapa($linha[6]);
             $estabelecimento->setWebsite($linha[7]);                      
-            $estabelecimento->setVizualizacoes($linha[8]);                        
+            $estabelecimento->setVisualizacoes($linha[8]);                        
             $estabelecimento->setIdUsuario($linha[9]);
             $estabelecimento->setIdEstacao($linha[10]);
             $estabelecimento->setEhBar($linha[11]);
@@ -117,7 +119,7 @@ class EstabelecimentoDAO extends AtracaoDAO {
 			$estabelecimentos[$i]->setLongitude($linha[8]);
 			$estabelecimentos[$i]->setLinkMapa($linha[9]);
 			$estabelecimentos[$i]->setWebsite($linha[10]);						
-			$estabelecimentos[$i]->setVizualizacoes($linha[11]);						
+			$estabelecimentos[$i]->setVisualizacoes($linha[11]);						
 			$estabelecimentos[$i]->setIdUsuario($linha[12]);
 			$estabelecimentos[$i]->setIdEstacao($linha[13]);
 			//$estabelecimentos[$i]->loadListasConteudos();
@@ -143,7 +145,7 @@ class EstabelecimentoDAO extends AtracaoDAO {
         				 longitude = ?,
         				 link_mapa = ?,
         				 website = ?,
-        				 vizualizacoes = ?,
+        				 visualizacoes = ?,
         				 eh_bar = ?,
         				 eh_restaurante = ?,
         				 eh_centro_cultural = ?
@@ -173,7 +175,7 @@ class EstabelecimentoDAO extends AtracaoDAO {
         $estabelecimentoArray[3] = $objeto->getLongitude();
         $estabelecimentoArray[4] = $objeto->getLinkMapa();
         $estabelecimentoArray[5] = $objeto->getWebsite();
-        $estabelecimentoArray[6] = $objeto->getVizualizacoes();
+        $estabelecimentoArray[6] = $objeto->getVisualizacoes();
         $estabelecimentoArray[7] = $eh_bar;
         $estabelecimentoArray[8] = $eh_restaurante;
         $estabelecimentoArray[9] = $eh_centro_cultural;

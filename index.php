@@ -48,14 +48,16 @@ $app->get('/pegue-o-trem', 'carregarLinhaTrem');
 $app->get('/sobre', function () {});
 $app->notFound(function () {});
 
-$app->post('/adicione', 'adicionarConteudo');
+$app->post('/adicionar-atracao', 'adicionarAtracao');
+
 
 $app->run();
 
-function adicionarConteudo($json) {
+function adicionarAtracao() {
 	$api = new ApiTrem;
 	$app = Slim::getInstance();
 	$app->contentType('application/json');
+	$api->adicionarAtracao($app->request->getBody());
 }
 
 function carregarLinhaTrem() {

@@ -19,11 +19,116 @@ require_once "VO/Imagem.php";
 require_once "VO/Video.php";
 
 class ApiTrem {
-	public function converterJsonParaObjeto($json) {
-		$array = json_decode($json, true);
+
+	// Adiciona uma nova atracao ao BD atraves de um JSON
+	// Parametros:
+	//	json: um JSON com seguinte formato:
+	//			{ 
+	//				classeDaAtracao: {
+	//			 		atributos 
+	//				},
+	//				listaDeConteudo1: [
+	//					{
+	//						atributos
+	//					}, ...
+	//				], ...
+	//				listaDeConteudo2: [
+	//					{
+	//						atributos
+	//					}, ...
+	//				], ...
+	//			}
+	//		Onde: 
+	//			classeDaAtracao: ("estabelecimento" | "evento")
+	//			listaDeConteudo: ("avaliacoes" | "comentarios" | "imagens" | "videos") - opcional
+	//			atributos: atributos da respectiva classe
+	// Retorna:
+	//	objeto de uma das seguintes classes:
+	//		(Estacao | Estabelecimento | Evento |
+	//		 Avaliacao | Comentario | Imagem | Video) 
+	public function adicionarAtracao($json) {
+		$arrayJson = json_decode($json, true);
+		$chaves = array_keys($arrayJson);
+		$classeAtracao = $chaves[0];
+
+		$arrayAtracao[$classeAtracao] = $arrayJson[$classeAtracao];
+		$atracao = $this->converterArrayJsonParaObjeto($arrayAtracao);
+
+		$usuario = new Usuario; 
+		$usuario->setIdUsuario($atracao->getIdUsuario());
+		$atracao = $this->gravarConteudo($atracao, $usuario);
 		
+		foreach ($chaves as $chave) {
+			if (strcmp($chave, $classeAtracao) === 0) {
+			}
+			else {
+				$arrayConteudos[$chave] = $arrayJson[$chave];
+				$conteudos = $this->converterArrayJsonParaArrayObjetos($arrayConteudos);
+				$setter = 'setId' . get_class($atracao);			
+				for ($i = 0; $i < count($conteudos); $i++) {
+					$conteudos[$i]->$setter($atracao->getId());
+					$this->gravarConteudo($conteudos[$i], $usuario);
+				}
+			}
+		}
+	}	
+	
+	// Converte um associative array de JSON object para um objeto da ApiTrem
+	// Parametros:
+	//	arrayJson: associative array de JSON com uma unica entrada
+	// Retorna:
+	//	objeto de uma das seguintes classes:
+	//		(Estacao | Estabelecimento | Evento |
+	//		 Avaliacao | Comentario | Imagem | Video)
+	public function converterArrayJsonParaObjeto($arrayJson) {
+		$chave = array_keys($arrayJson)[0];
+		$atributos = array_keys($arrayJson[$chave]);
+		$classe = ucfirst($chave);
+		$objeto = new $classe();
+		foreach ($atributos as $atributo) {
+			$setter = 'set' . ucfirst($atributo);
+			$objeto->$setter($arrayJson[$chave][$atributo]);
+		}
+		return $objeto;
 	}
 
+	// Converte um associative array de JSON array para um array de objetos da ApiTrem
+	// Parametros:
+	//	arrayJson: associative array de JSON com uma unica entrada, que por sua vez eh um array
+	// Retorna:
+	//	array de objetos de uma das seguintes classes:
+	//		(Estacao | Estabelecimento | Evento |
+	//		 Avaliacao | Comentario | Imagem | Video)
+	public function converterArrayJsonParaArrayObjetos($arrayJson) {
+		$chave = array_keys($arrayJson)[0];
+		$atributos = array_keys($arrayJson[$chave][0]);
+		$ultimos_chars = substr($chave, -3);
+
+		if (strcmp($ultimos_chars, 'oes') === 0) {
+			$classe = substr($chave, 0, -3) . 'ao';
+		} elseif (strcmp($ultimos_chars, 'ens') === 0) {
+			$classe = substr($chave, 0, -2) . 'm';
+		} else {
+			$classe = substr($chave, 0, -1);
+		}
+		$classe = ucfirst($classe);
+		$arrayResultante = array();
+
+		foreach ($arrayJson[$chave] as $elemento) {
+			$arrayTemp = array();
+			$arrayTemp[$classe] = $elemento;
+			array_push($arrayResultante, $this->converterArrayJsonParaObjeto($arrayTemp));
+		}
+		return $arrayResultante;
+	}
+
+
+	// Converte uma atracao e seu conteudo em um array no formato JSON
+	// Parametros:
+	//	atracao: objeto da classe: 
+	//				(Estabelecimento | Evento)
+	// Retorna:
+	//	array com a estrutura de $atracao no formato JSON
 	public function converterAtracaoParaJson($atracao) {
 		$json = array();
 		$json = $this->converterObjetoParaJson($atracao);
@@ -34,7 +139,7 @@ class ApiTrem {
 		return $json;
 	}
 
-	// Converte a linha do trem para uma array no formato JSON
+	// Converte a linha do trem para um array no formato JSON
 	// Parametros:
 	//	linha: resposta do metodo carregarLinhaTrem()
 	// Retorna:
@@ -100,32 +205,10 @@ class ApiTrem {
 	//	usuario: objeto da classe Usuario
 	public function gravarConteudo($objeto, $usuario) {
 		$classe = get_class($objeto);
+		$classeDAO = $classe . 'DAO';
+		$dao = new $classeDAO();
+		return $dao->gravar($objeto);
 
-		switch ($classe) {
-			case 'Estacao':
-				$estacaoDAO = new EstacaoDAO;
-				return $estacaoDAO->gravar($objeto);
-			case 'Estabelecimento':
-				$estabelecimentoDAO = new EstabelecimentoDAO;
-				return $estabelecimentoDAO->gravar($objeto);
-			case 'Evento':
-				$eventoDAO = new EventoDAO;
-				return $eventoDAO->gravar($objeto);
-			case 'Avaliacao':
-				$avaliacaoDAO = new AvaliacaoDAO;
-				return $avaliacaoDAO->gravar($objeto);
-			case 'Comentario':
-				$comentarioDAO = new ComentarioDAO;
-				return $comentarioDAO->gravar($objeto);
-			case 'Imagem':
-				$imagemDAO = new ImagemDAO;
-				return $imagemDAO->gravar($objeto);
-			case 'Video':
-				$videoDAO = new VideoDAO;
-				return $videoDAO->gravar($objeto);
-		}
-
-		return null;
 	}
 
 	// Altera os dados de um objeto por seu id
@@ -141,37 +224,9 @@ class ApiTrem {
 			return false;
 		}
 
-		switch ($classe) {
-			case 'Estacao':
-				$estacaoDAO = new EstacaoDAO;
-				$estacaoDAO->atualizar($objeto);
-				break;
-			case 'Estabelecimento':
-				$estabelecimentoDAO = new EstabelecimentoDAO;
-				$estabelecimentoDAO->atualizar($objeto);
-				break;
-			case 'Evento':
-				$eventoDAO = new EventoDAO;
-				$eventoDAO->atualizar($objeto);
-				break;
-			case 'Avaliacao':
-				$avaliacaoDAO = new AvaliacaoDAO;
-				$avaliacaoDAO->atualizar($objeto);
-				break;
-			case 'Comentario':
-				$comentarioDAO = new ComentarioDAO;
-				$comentarioDAO->atualizar($objeto);
-				break;
-			case 'Imagem':
-				$imagemDAO = new ImagemDAO;
-				$imagemDAO->atualizar($objeto);
-				break;
-			case 'Video':
-				$videoDAO = new VideoDAO;
-				$videoDAO->atualizar($objeto);
-				break;
-		}
-
+		$classeDAO = $classe . 'DAO';
+		$dao = new $classeDAO();
+		$dao->atualizar($objeto);
 		return true;
 	}
 
@@ -188,37 +243,9 @@ class ApiTrem {
 			return false;
 		}
 
-		switch ($classe) {
-			case 'Estacao':
-				$estacaoDAO = new EstacaoDAO;
-				$estacaoDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Estabelecimento':
-				$estabelecimentoDAO = new EstabelecimentoDAO;
-				$estabelecimentoDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Evento':
-				$eventoDAO = new EventoDAO;
-				$eventoDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Avaliacao':
-				$avaliacaoDAO = new AvaliacaoDAO;
-				$avaliacaoDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Comentario':
-				$comentarioDAO = new ComentarioDAO;
-				$comentarioDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Imagem':
-				$imagemDAO = new ImagemDAO;
-				$imagemDAO->excluirPorId($objeto->getId());
-				break;
-			case 'Video':
-				$videoDAO = new VideoDAO;
-				$videoDAO->excluirPorId($objeto->getId());
-				break;
-		}
-
+		$classeDAO = $classe . 'DAO';
+		$dao = new $classeDAO();
+		$dao->excluirPorId($objeto->getId());
 		return true;
 	}
 

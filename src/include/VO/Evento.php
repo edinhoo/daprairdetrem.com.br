@@ -6,11 +6,11 @@ class Evento extends Atracao {
     
     public function __construct($id=null, $nome=null, $dataInclusao=null, $endereco=null,
                                 $latitude=null, $longitude=null, $linkMapa=null, $website=null,
-                                $vizualizacoes=null, $idUsuario=null, $idEstacao=null,
+                                $visualizacoes=null, $idUsuario=null, $idEstacao=null,
                                 $infoEvento=null)
      {
     	parent::__construct($id, $nome, $dataInclusao, $endereco, $latitude, $longitude,
-    						$linkMapa, $website, $vizualizacoes, $idUsuario, $idEstacao);
+    						$linkMapa, $website, $visualizacoes, $idUsuario, $idEstacao);
         $this->infoEvento = $infoEvento;
     }
 
