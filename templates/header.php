@@ -1,3 +1,8 @@
+<?php
+define('CSS', 'css');
+define('JS', 'js');
+define('IMG', 'img');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -12,10 +17,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="<? echo CSS; ?>/normalize.min.css">
-<link rel="stylesheet" href="<? echo CSS; ?>/main.css">
+<link rel="stylesheet" href="<?= CSS ?>/main.css">
 
-<script src="<? echo JS; ?>/modernizr-2.6.2.min.js"></script>
+<script src="<?= JS; ?>/modernizr-2.6.2.min.js"></script>
 
 </head>
 <body>

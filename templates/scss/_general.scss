@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#home {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+    .logo {
+        left: 465px;
+        top: 245px;
+    }
+}
