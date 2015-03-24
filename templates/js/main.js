@@ -19,6 +19,16 @@ $("#formAdicione").ajaxForm({
 }); 
 
 
+function initializeSelectBox() 
+{
+    
+}
+
+$(document).ready(function() 
+{
+    
+});
+
 // create svg drawing
 
 /*

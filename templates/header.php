@@ -19,7 +19,7 @@ define('IMG', 'img');
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?= CSS ?>/main.css">
 
-<script src="<?= JS; ?>/modernizr-2.6.2.min.js"></script>
+<script src="bower_components/modernizr/modernizr.js"></script>
 
 </head>
 <body>

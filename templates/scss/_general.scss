@@ -3,6 +3,27 @@ html, body {
     width: 100%;
 }
 
+html {
+    font-size: 0.625em;
+}
+
+body {
+    background: url('../img/background.jpg') no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: block;
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+}
+
 #home {
     position: absolute;
     height: 100%;
@@ -14,3 +35,125 @@ html, body {
         top: 245px;
     }
 }
+
+#local {
+    margin-top: $page-top;
+    
+    .logo {
+        margin-right: 2.5rem;
+    }
+    
+    .medias {
+        margin: 2.5rem 0 0 9.5em;
+    }
+}
+
+#box-avaliacao {
+    position: fixed;
+    top: 25rem;
+    width: 19.5rem;
+    margin-left: -4rem;
+    
+    .box {
+        box-sizing: border-box;
+        font-family: $font1;
+        font-weight: bold;
+    }
+    
+    h1 {
+        font-size: 1.4em;
+        line-height: 1.55em;
+        text-transform: uppercase;
+        margin-bottom: 0.25em;
+    }
+    
+    .info {
+        height: 13.25rem;
+        color: white;
+        
+        .content {
+            padding: 2.25em 2em 1em 1.8em;
+        }
+        
+        .local {
+            margin-bottom: 0.25em;
+        }   
+    }
+    
+    .enviar {
+        color: black;
+        
+        .content {
+            padding: 2.1em 2em 0 2.4em;
+        }
+    }
+    
+    .local, .endereco, .chamada {
+        font-size: 1.1em;
+        line-height: 1.25em;
+        font-weight: bold;
+    }
+}
+
+#busca-interna {
+    width: 600px;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 1rem;
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+    }
+
+    label {
+        cursor: pointer;
+        color: $disabled-colour;
+        display: block;
+        line-height: 1.4em;
+        font-family: $font1;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+            color: lighten($disabled-colour, 5%);
+        }
+    }
+
+    label.active {
+        color: white;
+    }
+
+    .tipo {
+        width: 17rem;
+        margin: 0.45em 0.5em 0 0;
+        
+        .content {
+            padding: 1.2rem 2.2rem;
+        }
+    }
+    
+    .estacao {
+        width: 15.2rem;
+    }
+    
+    .nome {
+        margin-top: -.5em;
+    }
+}
+
+.svg-bg {
+    svg {
+        position: absolute;
+        z-index: 5;
+    }
+    
+    .content {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+

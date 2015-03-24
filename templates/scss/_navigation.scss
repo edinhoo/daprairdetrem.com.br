@@ -1,12 +1,7 @@
 #home-navigation {
     $height: 580px;
-    
-    position: relative;
-    display: block;
-    width: 1200px;
     height: $height;
     top: 50%;
-    margin: 0 auto;
     margin-top: (-$height / 2);
     
     .item {

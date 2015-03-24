@@ -101,19 +101,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 1, ../scss/_navigation.scss */
 #home-navigation {
-  position: relative;
-  display: block;
-  width: 1200px;
   height: 580px;
   top: 50%;
-  margin: 0 auto;
   margin-top: -290px;
 }
-/* line 12, ../scss/_navigation.scss */
+/* line 7, ../scss/_navigation.scss */
 #home-navigation .item {
   position: absolute;
 }
-/* line 15, ../scss/_navigation.scss */
+/* line 10, ../scss/_navigation.scss */
 #home-navigation .item span {
   display: none;
 }
@@ -125,14 +121,161 @@ html, body {
 }
 
 /* line 6, ../scss/_general.scss */
+html {
+  font-size: 0.625em;
+}
+
+/* line 10, ../scss/_general.scss */
+body {
+  background: url("../img/background.jpg") no-repeat;
+  background-size: cover;
+}
+
+/* line 15, ../scss/_general.scss */
+.container {
+  display: block;
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* line 22, ../scss/_general.scss */
+.hidden {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* line 27, ../scss/_general.scss */
 #home {
   position: absolute;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-/* line 12, ../scss/_general.scss */
+/* line 33, ../scss/_general.scss */
 #home .logo {
   left: 465px;
   top: 245px;
+}
+
+/* line 39, ../scss/_general.scss */
+#local {
+  margin-top: 5rem;
+}
+/* line 42, ../scss/_general.scss */
+#local .logo {
+  margin-right: 2.5rem;
+}
+/* line 46, ../scss/_general.scss */
+#local .medias {
+  margin: 2.5rem 0 0 9.5em;
+}
+
+/* line 51, ../scss/_general.scss */
+#box-avaliacao {
+  position: fixed;
+  top: 25rem;
+  width: 19.5rem;
+  margin-left: -4rem;
+}
+/* line 57, ../scss/_general.scss */
+#box-avaliacao .box {
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+/* line 63, ../scss/_general.scss */
+#box-avaliacao h1 {
+  font-size: 1.4em;
+  line-height: 1.55em;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+}
+/* line 70, ../scss/_general.scss */
+#box-avaliacao .info {
+  height: 13.25rem;
+  color: white;
+}
+/* line 74, ../scss/_general.scss */
+#box-avaliacao .info .content {
+  padding: 2.25em 2em 1em 1.8em;
+}
+/* line 78, ../scss/_general.scss */
+#box-avaliacao .info .local {
+  margin-bottom: 0.25em;
+}
+/* line 83, ../scss/_general.scss */
+#box-avaliacao .enviar {
+  color: black;
+}
+/* line 86, ../scss/_general.scss */
+#box-avaliacao .enviar .content {
+  padding: 2.1em 2em 0 2.4em;
+}
+/* line 91, ../scss/_general.scss */
+#box-avaliacao .local, #box-avaliacao .endereco, #box-avaliacao .chamada {
+  font-size: 1.1em;
+  line-height: 1.25em;
+  font-weight: bold;
+}
+
+/* line 98, ../scss/_general.scss */
+#busca-interna {
+  width: 600px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 1rem;
+}
+/* line 104, ../scss/_general.scss */
+#busca-interna li {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+/* line 110, ../scss/_general.scss */
+#busca-interna label {
+  cursor: pointer;
+  color: #aba9b1;
+  display: block;
+  line-height: 1.4em;
+  font-family: "Open Sans";
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 120, ../scss/_general.scss */
+#busca-interna label:hover {
+  color: #b8b6bd;
+}
+/* line 125, ../scss/_general.scss */
+#busca-interna label.active {
+  color: white;
+}
+/* line 129, ../scss/_general.scss */
+#busca-interna .tipo {
+  width: 17rem;
+  margin: 0.45em 0.5em 0 0;
+}
+/* line 133, ../scss/_general.scss */
+#busca-interna .tipo .content {
+  padding: 1.2rem 2.2rem;
+}
+/* line 138, ../scss/_general.scss */
+#busca-interna .estacao {
+  width: 15.2rem;
+}
+/* line 142, ../scss/_general.scss */
+#busca-interna .nome {
+  margin-top: -.5em;
+}
+
+/* line 148, ../scss/_general.scss */
+.svg-bg svg {
+  position: absolute;
+  z-index: 5;
+}
+/* line 153, ../scss/_general.scss */
+.svg-bg .content {
+  position: relative;
+  z-index: 10;
 }

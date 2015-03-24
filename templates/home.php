@@ -1,6 +1,7 @@
 <?php include('./header.php'); ?>
+
 <div id="home">
-    <nav id="home-navigation">
+    <nav id="home-navigation" class="container">
         <ul class="links">
             <li class="item logo">
                 <img src="<?php echo IMG; ?>/svg/logo.svg" class="logo">
