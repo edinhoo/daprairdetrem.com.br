@@ -101,10 +101,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 26, ../scss/_shapes.scss */
 .home-img1, .home-img2, .home-img3 {
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 
 /* line 30, ../scss/_shapes.scss */

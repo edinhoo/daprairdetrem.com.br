@@ -24,7 +24,7 @@
 }
 
 .home-img1, .home-img2, .home-img3 {
-    @include transform(translateZ(0));
+    -webkit-transform: translateZ(0);
 }
 
 .home-img1 {   
