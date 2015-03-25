@@ -1,7 +1,35 @@
 @mixin vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+// http://compass-style.org/reference/compass/helpers/sprites/
+@mixin get-sprite($map, $sprite, $repeat: no-repeat, $height: true, $width: true) {
+    //http://compass-style.org/reference/compass/helpers/sprites/#sprite-file
+    $sprite-image: sprite-file($map, $sprite);
+    // http://compass-style.org/reference/compass/helpers/sprites/#sprite-url
+    $sprite-map: sprite-url($map);
+    // http://compass-style.org/reference/compass/helpers/sprites/#sprite-position
+    $sprite-position: sprite-position($map, $sprite);
+    // Returns background
+    background: $sprite-map $sprite-position $repeat;
+    // http://compass-style.org/reference/compass/helpers/image-dimensions/
+    // Checks to see if the user wants height returned
+    @if $height true {
+        // Gets the height of the sprite-image
+        $sprite-height: image-height($sprite-image);
+        // Returns the height
+        height: $sprite-height;
+    }
+    // http://compass-style.org/reference/compass/helpers/image-dimensions/
+    // Checks to see if the user wants height returned
+    @if $width true {
+        // Gets the width of the sprite-image
+        $sprite-width: image-width($sprite-image);
+        // Returns the width
+        width: $sprite-width;
+    }
 }

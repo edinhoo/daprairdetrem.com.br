@@ -1,3 +1,4 @@
+
 #home-navigation {
     $height: 580px;
     height: $height;
@@ -7,8 +8,65 @@
     .item {
         position: absolute;
         
-        span {
+        &:hover .trem {
+            @include transform(rotateZ(5deg));
+        }
+        
+        &:hover .cadeira {
+            @include transform(rotateX(-25deg));
+        }
+        
+        &:hover .garrafa {
+            @include transform(rotateZ(-5deg));    
+        }
+        
+        &:hover .copo {
+            @include transform(rotateZ(90deg) translateX(10px) translateY(-15px));    
+        }
+        
+        &:hover .ventilador {
+            @include transform(rotateZ(5deg));    
+        }
+        
+        .title {
             display: none;
+        }        
+    }
+
+    .home-icon {
+        position: absolute;
+        display: inline-block;
+        @include transition(all 200ms ease-out);
+        
+        &.trem {
+            top: -16px;
+            left: -45px;
+            @include get-sprite($png-sprites, home-trem);
+        }
+        
+        &.cadeira {
+            top: -58px;
+            left: 130px;
+            @include get-sprite($png-sprites, home-cadeira);   
+        }
+        
+        &.garrafa {
+            top: 0px;
+            left: 132px;
+            @include get-sprite($png-sprites, home-garrafa);
+        }
+        
+        &.ventilador {
+            top: 42px;
+            left: -85px;
+            @include get-sprite($png-sprites, home-ventilador);
+        }
+        
+        &.copo {
+            left: 107px;
+            top: 68px;
+            @include get-sprite($png-sprites, home-copo);
         }
     }
+
 }

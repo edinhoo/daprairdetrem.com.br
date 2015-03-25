@@ -63,55 +63,163 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+/* line 80, ./../img/png/*.png */
+.png-sprite {
+  background-image: url('../img/./../img/png-s939999c964.png');
+  background-repeat: no-repeat;
+}
+
 /* line 1, ../scss/_shapes.scss */
 .shape1 {
-  left: 330px;
+  left: 230px;
   top: 0;
 }
 
 /* line 6, ../scss/_shapes.scss */
 .shape2 {
-  left: 490px;
+  left: 390px;
   top: 60px;
 }
 
 /* line 11, ../scss/_shapes.scss */
 .shape3 {
-  left: 790px;
-  top: 235px;
+  left: 645px;
+  top: 255px;
 }
 
 /* line 16, ../scss/_shapes.scss */
 .shape4 {
-  left: 300px;
+  left: 205px;
   top: 365px;
 }
 
 /* line 21, ../scss/_shapes.scss */
 .shape5 {
-  left: 760px;
-  top: 370px;
+  left: 660px;
+  top: 375px;
 }
 
 /* line 26, ../scss/_shapes.scss */
-.image1 {
+.home-img1 {
   top: 195px;
-  left: 230px;
+  left: 130px;
+  clip-path: url("../img/svg/home-imagem1.svg#svgPath");
+  -webkit-clip-path: url("../img/svg/home-imagem1.svg#svgPath");
 }
 
-/* line 1, ../scss/_navigation.scss */
+/* line 33, ../scss/_shapes.scss */
+.home-img2 {
+  top: 100px;
+  left: 630px;
+  clip-path: url("../img/svg/home-imagem2.svg#svgPath");
+  -webkit-clip-path: url("../img/svg/home-imagem2.svg#svgPath");
+}
+
+/* line 41, ../scss/_shapes.scss */
+.home-img3 {
+  top: 370px;
+  left: 430px;
+  clip-path: url("../img/svg/home-imagem3.svg#svgPath");
+  -webkit-clip-path: url("../img/svg/home-imagem3.svg#svgPath");
+}
+
+/* line 2, ../scss/_navigation.scss */
 #home-navigation {
   height: 580px;
   top: 50%;
   margin-top: -290px;
 }
-/* line 7, ../scss/_navigation.scss */
+/* line 8, ../scss/_navigation.scss */
 #home-navigation .item {
   position: absolute;
 }
-/* line 10, ../scss/_navigation.scss */
-#home-navigation .item span {
+/* line 11, ../scss/_navigation.scss */
+#home-navigation .item:hover .trem {
+  -moz-transform: rotateZ(5deg);
+  -ms-transform: rotateZ(5deg);
+  -webkit-transform: rotateZ(5deg);
+  transform: rotateZ(5deg);
+}
+/* line 15, ../scss/_navigation.scss */
+#home-navigation .item:hover .cadeira {
+  -moz-transform: rotateX(-25deg);
+  -ms-transform: rotateX(-25deg);
+  -webkit-transform: rotateX(-25deg);
+  transform: rotateX(-25deg);
+}
+/* line 19, ../scss/_navigation.scss */
+#home-navigation .item:hover .garrafa {
+  -moz-transform: rotateZ(-5deg);
+  -ms-transform: rotateZ(-5deg);
+  -webkit-transform: rotateZ(-5deg);
+  transform: rotateZ(-5deg);
+}
+/* line 23, ../scss/_navigation.scss */
+#home-navigation .item:hover .copo {
+  -moz-transform: rotateZ(90deg) translateX(10px) translateY(-15px);
+  -ms-transform: rotateZ(90deg) translateX(10px) translateY(-15px);
+  -webkit-transform: rotateZ(90deg) translateX(10px) translateY(-15px);
+  transform: rotateZ(90deg) translateX(10px) translateY(-15px);
+}
+/* line 27, ../scss/_navigation.scss */
+#home-navigation .item:hover .ventilador {
+  -moz-transform: rotateZ(5deg);
+  -ms-transform: rotateZ(5deg);
+  -webkit-transform: rotateZ(5deg);
+  transform: rotateZ(5deg);
+}
+/* line 31, ../scss/_navigation.scss */
+#home-navigation .item .title {
   display: none;
+}
+/* line 36, ../scss/_navigation.scss */
+#home-navigation .home-icon {
+  position: absolute;
+  display: inline-block;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+/* line 41, ../scss/_navigation.scss */
+#home-navigation .home-icon.trem {
+  top: -16px;
+  left: -45px;
+  background: url('../img/./../img/png-s939999c964.png') 0 -374px no-repeat;
+  height: 128px;
+  width: 204px;
+}
+/* line 47, ../scss/_navigation.scss */
+#home-navigation .home-icon.cadeira {
+  top: -58px;
+  left: 130px;
+  background: url('../img/./../img/png-s939999c964.png') 0 0 no-repeat;
+  height: 180px;
+  width: 110px;
+}
+/* line 53, ../scss/_navigation.scss */
+#home-navigation .home-icon.garrafa {
+  top: 0px;
+  left: 132px;
+  background: url('../img/./../img/png-s939999c964.png') 0 -248px no-repeat;
+  height: 126px;
+  width: 124px;
+}
+/* line 59, ../scss/_navigation.scss */
+#home-navigation .home-icon.ventilador {
+  top: 42px;
+  left: -85px;
+  background: url('../img/./../img/png-s939999c964.png') 0 -502px no-repeat;
+  height: 147px;
+  width: 112px;
+}
+/* line 65, ../scss/_navigation.scss */
+#home-navigation .home-icon.copo {
+  left: 107px;
+  top: 68px;
+  background: url('../img/./../img/png-s939999c964.png') 0 -180px no-repeat;
+  height: 68px;
+  width: 43px;
 }
 
 /* line 1, ../scss/_general.scss */
@@ -154,7 +262,7 @@ body {
 }
 /* line 33, ../scss/_general.scss */
 #home .logo {
-  left: 465px;
+  left: 365px;
   top: 245px;
 }
 

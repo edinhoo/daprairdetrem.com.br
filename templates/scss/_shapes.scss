@@ -1,29 +1,47 @@
 .shape1 {
-    left: 330px;
+    left: 230px;
     top: 0;
 }
 
 .shape2 {
-    left: 490px;
+    left: 390px;
     top: 60px;
 }
 
 .shape3 {
-    left: 790px;
-    top: 235px;
+    left: 645px;
+    top: 255px;
 }
 
 .shape4 {
-    left: 300px;
+    left: 205px;
     top: 365px;
 }
 
 .shape5 {
-    left: 760px;
-    top: 370px;
+    left: 660px;
+    top: 375px;
 }
 
-.image1 {
+.home-img1 {   
     top: 195px;
-    left: 230px;
+    left: 130px;
+    clip-path: url('../img/svg/home-imagem1.svg#svgPath');
+    -webkit-clip-path: url('../img/svg/home-imagem1.svg#svgPath');
+}
+
+.home-img2 {
+    top: 100px;
+    left: 630px;
+    
+    clip-path: url('../img/svg/home-imagem2.svg#svgPath');
+    -webkit-clip-path: url('../img/svg/home-imagem2.svg#svgPath');
+}
+
+.home-img3 {
+    top: 370px;
+    left: 430px;
+    
+    clip-path: url('../img/svg/home-imagem3.svg#svgPath');
+    -webkit-clip-path: url('../img/svg/home-imagem3.svg#svgPath');
 }
