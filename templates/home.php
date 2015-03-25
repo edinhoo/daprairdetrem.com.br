@@ -48,12 +48,33 @@
         <ul class="images">        
             <li class="item home-img1">
                 <img src="http://placehold.it/210x160" width="212"/>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+                    <defs>
+                        <clipPath id="svgPath1">
+                            <polygon x="0" y="0" points="4.682,0 0,158.282 172.884,136.793 212.274,0 "/>
+                        </clipPath>
+                    </defs>
+                </svg>
             </li>
             <li class="item home-img2">
                 <img src="http://placehold.it/210x160" width="214" alt="">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="215" height="160" xml:space="preserve">
+                    <defs>
+                        <clipPath id="svgPath2">
+                            <polygon x="0" y="0" points="0,10.131 18,159 213,125 194,0 "/>
+                        </clipPath>
+                    </defs>
+                </svg>
             </li>
             <li class="item home-img3">
                 <img src="http://placehold.it/210x160" alt="">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="210" height="157.925px" xml:space="preserve">
+                    <defs>
+                        <clipPath id="svgPath3">
+                            <polygon x="0" y="0" points="0,30 0,157.925 210.921,148.216 200.601,0 "/>
+                        </clipPath>
+                    </defs>
+                </svg>
             </li>
         </ul>
 

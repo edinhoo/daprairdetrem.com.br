@@ -100,27 +100,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 26, ../scss/_shapes.scss */
+.home-img1, .home-img2, .home-img3 {
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* line 30, ../scss/_shapes.scss */
 .home-img1 {
   top: 195px;
   left: 130px;
-  clip-path: url("../img/svg/home-imagem1.svg#svgPath");
-  -webkit-clip-path: url("../img/svg/home-imagem1.svg#svgPath");
+  clip-path: url(../img/svg/home-imagem1.svg#svgPath1);
+  -webkit-clip-path: url(#svgPath1);
 }
 
-/* line 33, ../scss/_shapes.scss */
+/* line 38, ../scss/_shapes.scss */
 .home-img2 {
   top: 100px;
   left: 630px;
-  clip-path: url("../img/svg/home-imagem2.svg#svgPath");
-  -webkit-clip-path: url("../img/svg/home-imagem2.svg#svgPath");
+  clip-path: url(../img/svg/home-imagem2.svg#svgPath2);
+  -webkit-clip-path: url(#svgPath2);
 }
 
-/* line 41, ../scss/_shapes.scss */
+/* line 46, ../scss/_shapes.scss */
 .home-img3 {
   top: 370px;
   left: 430px;
-  clip-path: url("../img/svg/home-imagem3.svg#svgPath");
-  -webkit-clip-path: url("../img/svg/home-imagem3.svg#svgPath");
+  clip-path: url(../img/svg/home-imagem3.svg#svgPath3);
+  -webkit-clip-path: url(#svgPath3);
 }
 
 /* line 2, ../scss/_navigation.scss */

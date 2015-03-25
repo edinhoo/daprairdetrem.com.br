@@ -23,25 +23,30 @@
     top: 375px;
 }
 
+.home-img1, .home-img2, .home-img3 {
+    @include transform(translateZ(0));
+}
+
 .home-img1 {   
     top: 195px;
     left: 130px;
-    clip-path: url('../img/svg/home-imagem1.svg#svgPath');
-    -webkit-clip-path: url('../img/svg/home-imagem1.svg#svgPath');
+    
+    clip-path: url(../img/svg/home-imagem1.svg#svgPath1);   
+    -webkit-clip-path: url(#svgPath1);
 }
 
 .home-img2 {
     top: 100px;
     left: 630px;
     
-    clip-path: url('../img/svg/home-imagem2.svg#svgPath');
-    -webkit-clip-path: url('../img/svg/home-imagem2.svg#svgPath');
+    clip-path: url(../img/svg/home-imagem2.svg#svgPath2);
+    -webkit-clip-path: url(#svgPath2);
 }
 
 .home-img3 {
     top: 370px;
     left: 430px;
     
-    clip-path: url('../img/svg/home-imagem3.svg#svgPath');
-    -webkit-clip-path: url('../img/svg/home-imagem3.svg#svgPath');
+    clip-path: url(../img/svg/home-imagem3.svg#svgPath3);
+    -webkit-clip-path: url(#svgPath3);
 }
