@@ -16,9 +16,8 @@ define('IMG', 'img');
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<?= CSS ?>/main.css">
-
 <script src="bower_components/modernizr/modernizr.js"></script>
 
 </head>

@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    overflow-y: auto;
 }
 
 html {
@@ -37,6 +38,7 @@ body {
 }
 
 #local {
+    $spacement: 20px;
     margin-top: $page-top;
     
     .logo {
@@ -44,8 +46,57 @@ body {
     }
     
     .medias {
+        width: 700px;
         margin: 2.5rem 0 0 9.5em;
+        float: left;
+        
+        ul {
+            width: 100%;
+        }
+        
+        li {
+            float: left;
+            margin-bottom: $spacement;
+            width: 340px;
+        }
+        
+        img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
+    }    
+    
+    .opiniao {
+        display: inline-block;
+        width: 170px;
+        margin: 2.1em 0 0 $spacement;
+        vertical-align: top;
+        
+        li {
+            margin-bottom: 2em;
+        }
     }
+    
+    .comentario {
+        font-size: 1.3rem;
+        line-height: 1.25em;
+        font-family: $font1;
+        font-weight: 600;      
+        
+        p {
+            margin-bottom: 0.5em;
+        }
+    }
+    
+    .nome {
+        font-size: 1rem;
+        line-height: 1.25em;
+        font-style: italic;
+        font-family: $font1;
+        margin-top: -0.4em;
+    }
+
 }
 
 #box-avaliacao {
@@ -122,7 +173,7 @@ body {
         }
     }
 
-    label.active {
+    .hidden:checked + label {
         color: white;
     }
 

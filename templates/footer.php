@@ -1,12 +1,17 @@
 <?php include( './login.php'); ?>
 
 <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\/script>')</script>
+<script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+<script src="bower_components/featherlight/src/featherlight.js"></script>
+<script src="bower_components/featherlight/src/featherlight.gallery.js"></script>
 
 <script src="<?php echo JS; ?>/trem/window.js"></script>
 <script src="<?php echo JS; ?>/trem/login.js"></script>
 <script src="<?php echo JS; ?>/trem/home.js"></script>
+<script src="<?php echo JS; ?>/trem/local.js"></script>
 <script src="<?php echo JS; ?>/main.js"></script>
-
+    
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

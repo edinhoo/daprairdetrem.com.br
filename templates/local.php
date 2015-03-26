@@ -12,8 +12,8 @@
                 </svg>
 
                 <div class="content">
-                    <input type="radio" class="hidden" name="categoria" id="categoria-bar" value="bar">
-                    <label class="active" for="categoria-bar">Bar</label>
+                    <input type="radio" class="hidden" name="categoria" id="categoria-bar" value="bar" checked>
+                    <label for="categoria-bar">Bar</label>
 
                     <input type="radio" class="hidden" name="categoria" id="categoria-restaurante" value="restaurante">
                     <label for="categoria-restaurante">Restaurante</label>
@@ -85,43 +85,78 @@
 
     <!-- Coluna de fotos / vídeos -->
     <article class="medias">
-        <ul>
+        <ul class="gallery">
             <li>
-                <img src="http://placehold.it/300x200" alt="">
+                <a href="img/examples/300x200.gif" class="item">
+                    <img src="img/examples/300x200.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/150x300" alt="">
+                <a href="img/examples/150x300.gif" class="item">
+                    <img src="img/examples/150x300.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/480x320" alt="">
+                <a href="img/examples/480x320.gif" class="item">
+                    <img src="img/examples/480x320.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/600x200" alt="">
+                <a href="img/examples/600x200.gif" class="item">
+                    <img src="img/examples/600x200.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/300x400" alt="">
+                <a href="img/examples/300x400.gif" class="item">
+                    <img src="img/examples/300x400.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/200x300" alt="">
+                <a href="img/examples/200x300.gif" class="item">
+                    <img src="img/examples/200x300.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/300x150" alt="">
+                <a href="img/examples/300x150.gif" class="item">
+                    <img src="img/examples/300x150.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/900x600" alt="">
+                <a href="img/examples/900x600.gif" class="item">
+                    <img src="img/examples/900x600.gif" alt="">
+                </a>
             </li>
             <li>
-                <img src="http://placehold.it/300x300" alt="">
-            </li>
-            <li>
-                <img src="http://placehold.it/200x150" alt="">
+                <a href="img/examples/300x300.gif" class="item">
+                    <img src="img/examples/300x300.gif" alt="">
+                </a>
             </li>
         </ul>
     </article>
 
     <!-- Coluna de comentários / opiniões -->
-    <div class="opiniao">
-
-    </div>
+    <aside class="opiniao">
+        <ul class="comentarios">
+            <li>
+                <div class="comentario">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eligendi beatae architecto facilis autem dolorum nihil amet, harum sit numquam vitae, dicta error aperiam omnis culpa nulla, quisquam ea modi!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur similique dolore soluta ducimus est, consequuntur excepturi quod expedita doloribus illo, ipsum atque aliquam omnis quae cum voluptatibus ullam nam culpa!</p>
+                </div>
+                <div class="nome">Pedro Rezende (24), 20/08/2014</div>
+            </li>
+            <li>
+                <div class="comentario">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit porro, in aut esse eius. Qui unde velit, officiis voluptatem, alias dolores delectus reprehenderit deleniti quasi sit aperiam nobis distinctio temporibus!</p>
+                </div>
+                <div class="nome">Harrison Mendonça (39), 20/08/2014</div>
+            </li>
+            <li>
+                <div class="comentario">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+                <div class="nome">Mr. Teste da Silva (40), 20/09/2015</div>
+            </li>
+        </ul>
+    </aside>
 </section>
 <?php include( './footer.php'); ?>

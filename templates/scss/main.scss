@@ -6,9 +6,11 @@
 @import "variables";
 @import "mixins.scss";
 @import "typography";
-@import "components";
 @import "shapes";
 @import "navigation";
 @import "headers";
+
+@import "components/lightbox";
+
 @import "general";
 @import "mobile";

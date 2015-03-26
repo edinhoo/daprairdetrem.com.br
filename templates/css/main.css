@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 5, ../../../../../../../../../Ruby192/lib/ruby/gems/1.9.1/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -227,24 +228,197 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 43px;
 }
 
+/**
+ * Featherlight ÔÇô ultra slim jQuery lightbox
+ * Version 1.2.3 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2015, No├½l Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+@media all {
+  /* line 9, ../scss/components/_lightbox.scss */
+  .featherlight {
+    display: none;
+    /* dimensions: spanning the background from edge to edge */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    /* z-index needs to be >= elements on the site. */
+    /* position: centering content */
+    text-align: center;
+    /* insures that the ::before pseudo element doesn't force wrap with fixed width content; */
+    white-space: nowrap;
+    /* styling */
+    cursor: pointer;
+    background: #333;
+    /* IE8 "hack" for nested featherlights */
+    background: transparent;
+  }
+
+  /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
+  /* line 31, ../scss/components/_lightbox.scss */
+  .featherlight:last-of-type {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  /* line 35, ../scss/components/_lightbox.scss */
+  .featherlight:before {
+    /* position: trick to center content vertically */
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+
+  /* line 44, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-content {
+    /* make content container for positioned elements (close button) */
+    position: relative;
+    /* position: centering vertical and horizontal */
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    /* dimensions: cut off images */
+    overflow: auto;
+    padding: 50px 50px 70px;
+    border-bottom: 0;
+    /* dimensions: handling small or empty content */
+    min-width: 30%;
+    /* dimensions: handling large content */
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 95%;
+    /* styling */
+    background: #ffbf59;
+    cursor: auto;
+    /* reset white-space wrapping */
+    white-space: normal;
+  }
+
+  /* contains the content */
+  /* line 76, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-inner {
+    /* make sure its visible */
+    display: block;
+  }
+
+  /* line 81, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-close-icon {
+    /* position: centering vertical and horizontal */
+    position: absolute;
+    z-index: 9999;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    -moz-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+  }
+  /* line 90, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-close-icon:hover {
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    transform: rotateZ(-180deg);
+  }
+  /* line 94, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-close-icon:active {
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+
+  /* line 99, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-image {
+    /* styling */
+    width: 100%;
+  }
+
+  /* line 104, ../scss/components/_lightbox.scss */
+  .featherlight-iframe .featherlight-content {
+    /* removed the border for image croping since iframe is edge to edge */
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  /* line 110, ../scss/components/_lightbox.scss */
+  .featherlight iframe {
+    /* styling */
+    border: none;
+  }
+
+  /* line 115, ../scss/components/_lightbox.scss */
+  .arrow {
+    cursor: pointer;
+    position: absolute;
+    margin: 1.5em 2em 0 0;
+    margin-left: 1.5em;
+    -moz-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+  }
+  /* line 122, ../scss/components/_lightbox.scss */
+  .arrow:hover {
+    -moz-transform: scale(1.2) rotateZ(5deg);
+    -ms-transform: scale(1.2) rotateZ(5deg);
+    -webkit-transform: scale(1.2) rotateZ(5deg);
+    transform: scale(1.2) rotateZ(5deg);
+  }
+
+  /* line 127, ../scss/components/_lightbox.scss */
+  .arrow.voltar {
+    margin-left: -1.5em;
+    -moz-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+  }
+  /* line 131, ../scss/components/_lightbox.scss */
+  .arrow.voltar:hover {
+    -moz-transform: scale(1.2) rotateZ(-185deg);
+    -ms-transform: scale(1.2) rotateZ(-185deg);
+    -webkit-transform: scale(1.2) rotateZ(-185deg);
+    transform: scale(1.2) rotateZ(-185deg);
+  }
+}
+/* handling phones and small screens */
+@media only screen and (max-width: 1024px) {
+  /* line 140, ../scss/components/_lightbox.scss */
+  .featherlight .featherlight-content {
+    /* dimensions: maximize lightbox with for small screens */
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 98%;
+    padding: 10px 10px 0;
+    border-bottom: 10px solid transparent;
+  }
+}
 /* line 1, ../scss/_general.scss */
 html, body {
   height: 100%;
   width: 100%;
+  overflow-y: auto;
 }
 
-/* line 6, ../scss/_general.scss */
+/* line 7, ../scss/_general.scss */
 html {
   font-size: 0.625em;
 }
 
-/* line 10, ../scss/_general.scss */
+/* line 11, ../scss/_general.scss */
 body {
   background: url("../img/background.jpg") no-repeat;
   background-size: cover;
 }
 
-/* line 15, ../scss/_general.scss */
+/* line 16, ../scss/_general.scss */
 .container {
   display: block;
   position: relative;
@@ -252,100 +426,148 @@ body {
   margin: 0 auto;
 }
 
-/* line 22, ../scss/_general.scss */
+/* line 23, ../scss/_general.scss */
 .hidden {
   position: absolute;
   visibility: hidden;
 }
 
-/* line 27, ../scss/_general.scss */
+/* line 28, ../scss/_general.scss */
 #home {
   position: absolute;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-/* line 33, ../scss/_general.scss */
+/* line 34, ../scss/_general.scss */
 #home .logo {
   left: 365px;
   top: 245px;
 }
 
-/* line 39, ../scss/_general.scss */
+/* line 40, ../scss/_general.scss */
 #local {
   margin-top: 5rem;
 }
-/* line 42, ../scss/_general.scss */
+/* line 44, ../scss/_general.scss */
 #local .logo {
   margin-right: 2.5rem;
 }
-/* line 46, ../scss/_general.scss */
+/* line 48, ../scss/_general.scss */
 #local .medias {
+  width: 700px;
   margin: 2.5rem 0 0 9.5em;
+  float: left;
+}
+/* line 53, ../scss/_general.scss */
+#local .medias ul {
+  width: 100%;
+}
+/* line 57, ../scss/_general.scss */
+#local .medias li {
+  float: left;
+  margin-bottom: 20px;
+  width: 340px;
+}
+/* line 63, ../scss/_general.scss */
+#local .medias img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+/* line 70, ../scss/_general.scss */
+#local .opiniao {
+  display: inline-block;
+  width: 170px;
+  margin: 2.1em 0 0 20px;
+  vertical-align: top;
+}
+/* line 76, ../scss/_general.scss */
+#local .opiniao li {
+  margin-bottom: 2em;
+}
+/* line 81, ../scss/_general.scss */
+#local .comentario {
+  font-size: 1.3rem;
+  line-height: 1.25em;
+  font-family: "Open Sans";
+  font-weight: 600;
+}
+/* line 87, ../scss/_general.scss */
+#local .comentario p {
+  margin-bottom: 0.5em;
+}
+/* line 92, ../scss/_general.scss */
+#local .nome {
+  font-size: 1rem;
+  line-height: 1.25em;
+  font-style: italic;
+  font-family: "Open Sans";
+  margin-top: -0.4em;
 }
 
-/* line 51, ../scss/_general.scss */
+/* line 102, ../scss/_general.scss */
 #box-avaliacao {
   position: fixed;
   top: 25rem;
   width: 19.5rem;
   margin-left: -4rem;
 }
-/* line 57, ../scss/_general.scss */
+/* line 108, ../scss/_general.scss */
 #box-avaliacao .box {
   box-sizing: border-box;
   font-family: "Open Sans";
   font-weight: bold;
 }
-/* line 63, ../scss/_general.scss */
+/* line 114, ../scss/_general.scss */
 #box-avaliacao h1 {
   font-size: 1.4em;
   line-height: 1.55em;
   text-transform: uppercase;
   margin-bottom: 0.25em;
 }
-/* line 70, ../scss/_general.scss */
+/* line 121, ../scss/_general.scss */
 #box-avaliacao .info {
   height: 13.25rem;
   color: white;
 }
-/* line 74, ../scss/_general.scss */
+/* line 125, ../scss/_general.scss */
 #box-avaliacao .info .content {
   padding: 2.25em 2em 1em 1.8em;
 }
-/* line 78, ../scss/_general.scss */
+/* line 129, ../scss/_general.scss */
 #box-avaliacao .info .local {
   margin-bottom: 0.25em;
 }
-/* line 83, ../scss/_general.scss */
+/* line 134, ../scss/_general.scss */
 #box-avaliacao .enviar {
   color: black;
 }
-/* line 86, ../scss/_general.scss */
+/* line 137, ../scss/_general.scss */
 #box-avaliacao .enviar .content {
   padding: 2.1em 2em 0 2.4em;
 }
-/* line 91, ../scss/_general.scss */
+/* line 142, ../scss/_general.scss */
 #box-avaliacao .local, #box-avaliacao .endereco, #box-avaliacao .chamada {
   font-size: 1.1em;
   line-height: 1.25em;
   font-weight: bold;
 }
 
-/* line 98, ../scss/_general.scss */
+/* line 149, ../scss/_general.scss */
 #busca-interna {
   width: 600px;
   vertical-align: top;
   display: inline-block;
   margin-top: 1rem;
 }
-/* line 104, ../scss/_general.scss */
+/* line 155, ../scss/_general.scss */
 #busca-interna li {
   display: inline-block;
   vertical-align: top;
   position: relative;
 }
-/* line 110, ../scss/_general.scss */
+/* line 161, ../scss/_general.scss */
 #busca-interna label {
   cursor: pointer;
   color: #aba9b1;
@@ -356,38 +578,38 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 120, ../scss/_general.scss */
+/* line 171, ../scss/_general.scss */
 #busca-interna label:hover {
   color: #b8b6bd;
 }
-/* line 125, ../scss/_general.scss */
-#busca-interna label.active {
+/* line 176, ../scss/_general.scss */
+#busca-interna .hidden:checked + label {
   color: white;
 }
-/* line 129, ../scss/_general.scss */
+/* line 180, ../scss/_general.scss */
 #busca-interna .tipo {
   width: 17rem;
   margin: 0.45em 0.5em 0 0;
 }
-/* line 133, ../scss/_general.scss */
+/* line 184, ../scss/_general.scss */
 #busca-interna .tipo .content {
   padding: 1.2rem 2.2rem;
 }
-/* line 138, ../scss/_general.scss */
+/* line 189, ../scss/_general.scss */
 #busca-interna .estacao {
   width: 15.2rem;
 }
-/* line 142, ../scss/_general.scss */
+/* line 193, ../scss/_general.scss */
 #busca-interna .nome {
   margin-top: -.5em;
 }
 
-/* line 148, ../scss/_general.scss */
+/* line 199, ../scss/_general.scss */
 .svg-bg svg {
   position: absolute;
   z-index: 5;
 }
-/* line 153, ../scss/_general.scss */
+/* line 204, ../scss/_general.scss */
 .svg-bg .content {
   position: relative;
   z-index: 10;
