@@ -1,6 +1,9 @@
+<?php include( './login.php'); ?>
+
 <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\/script>')</script>
 
 <script src="<?php echo JS; ?>/trem/window.js"></script>
+<script src="<?php echo JS; ?>/trem/login.js"></script>
 <script src="<?php echo JS; ?>/trem/home.js"></script>
 <script src="<?php echo JS; ?>/main.js"></script>
 

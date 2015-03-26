@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li class="item shape5">
-                <a href="#">
+                <a href="javascript:Login.show();">
                     <span class="title">Login</span>
                     <img src="img/svg/login.svg" alt="">
                     <span class="home-icon copo"></span>
