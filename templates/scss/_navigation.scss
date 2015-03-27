@@ -41,31 +41,26 @@
         &.trem {
             top: -16px;
             left: -45px;
-            @include get-sprite($png-sprites, home-trem);
         }
         
         &.cadeira {
             top: -58px;
             left: 130px;
-            @include get-sprite($png-sprites, home-cadeira);   
         }
         
         &.garrafa {
             top: 0px;
             left: 132px;
-            @include get-sprite($png-sprites, home-garrafa);
         }
         
         &.ventilador {
             top: 42px;
             left: -85px;
-            @include get-sprite($png-sprites, home-ventilador);
         }
         
         &.copo {
             left: 107px;
             top: 68px;
-            @include get-sprite($png-sprites, home-copo);
         }
     }
 

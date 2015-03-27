@@ -191,41 +191,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 #home-navigation .home-icon.trem {
   top: -16px;
   left: -45px;
-  background: url('../img/./../img/png-s939999c964.png') 0 -374px no-repeat;
-  height: 128px;
-  width: 204px;
 }
-/* line 47, ../scss/_navigation.scss */
+/* line 46, ../scss/_navigation.scss */
 #home-navigation .home-icon.cadeira {
   top: -58px;
   left: 130px;
-  background: url('../img/./../img/png-s939999c964.png') 0 0 no-repeat;
-  height: 180px;
-  width: 110px;
 }
-/* line 53, ../scss/_navigation.scss */
+/* line 51, ../scss/_navigation.scss */
 #home-navigation .home-icon.garrafa {
   top: 0px;
   left: 132px;
-  background: url('../img/./../img/png-s939999c964.png') 0 -248px no-repeat;
-  height: 126px;
-  width: 124px;
 }
-/* line 59, ../scss/_navigation.scss */
+/* line 56, ../scss/_navigation.scss */
 #home-navigation .home-icon.ventilador {
   top: 42px;
   left: -85px;
-  background: url('../img/./../img/png-s939999c964.png') 0 -502px no-repeat;
-  height: 147px;
-  width: 112px;
 }
-/* line 65, ../scss/_navigation.scss */
+/* line 61, ../scss/_navigation.scss */
 #home-navigation .home-icon.copo {
   left: 107px;
   top: 68px;
-  background: url('../img/./../img/png-s939999c964.png') 0 -180px no-repeat;
-  height: 68px;
-  width: 43px;
 }
 
 /**
@@ -291,7 +276,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     /* dimensions: handling large content */
     margin-left: 5%;
     margin-right: 5%;
-    max-height: 95%;
+    max-height: 70%;
     /* styling */
     background: #ffbf59;
     cursor: auto;
@@ -336,24 +321,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
   /* line 99, ../scss/components/_lightbox.scss */
   .featherlight .featherlight-image {
-    /* styling */
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0px auto;
+    width: auto;
+    height: 100%;
   }
 
-  /* line 104, ../scss/components/_lightbox.scss */
+  /* line 107, ../scss/components/_lightbox.scss */
   .featherlight-iframe .featherlight-content {
     /* removed the border for image croping since iframe is edge to edge */
     border-bottom: 0;
     padding: 0;
   }
 
-  /* line 110, ../scss/components/_lightbox.scss */
+  /* line 113, ../scss/components/_lightbox.scss */
   .featherlight iframe {
     /* styling */
     border: none;
   }
 
-  /* line 115, ../scss/components/_lightbox.scss */
+  /* line 118, ../scss/components/_lightbox.scss */
   .arrow {
     cursor: pointer;
     position: absolute;
@@ -364,7 +352,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
   }
-  /* line 122, ../scss/components/_lightbox.scss */
+  /* line 125, ../scss/components/_lightbox.scss */
   .arrow:hover {
     -moz-transform: scale(1.2) rotateZ(5deg);
     -ms-transform: scale(1.2) rotateZ(5deg);
@@ -372,7 +360,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: scale(1.2) rotateZ(5deg);
   }
 
-  /* line 127, ../scss/components/_lightbox.scss */
+  /* line 130, ../scss/components/_lightbox.scss */
   .arrow.voltar {
     margin-left: -1.5em;
     -moz-transform: rotateZ(180deg);
@@ -380,7 +368,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -webkit-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
   }
-  /* line 131, ../scss/components/_lightbox.scss */
+  /* line 134, ../scss/components/_lightbox.scss */
   .arrow.voltar:hover {
     -moz-transform: scale(1.2) rotateZ(-185deg);
     -ms-transform: scale(1.2) rotateZ(-185deg);
@@ -390,7 +378,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 /* handling phones and small screens */
 @media only screen and (max-width: 1024px) {
-  /* line 140, ../scss/components/_lightbox.scss */
+  /* line 143, ../scss/components/_lightbox.scss */
   .featherlight .featherlight-content {
     /* dimensions: maximize lightbox with for small screens */
     margin-left: 10px;

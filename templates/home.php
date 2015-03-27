@@ -12,35 +12,35 @@
                 <a href="#">
                     <span class="title">Pegue o trem</span>
                     <img src="img/svg/pegue-o-trem.svg" alt="">
-                    <span class="home-icon trem"></span>
+                    <img src="img/svg/home-trem.svg" class="home-icon trem" />
                 </a>
             </li>
             <li class="item shape2">
                 <a href="#">
                     <span class="title">Sobre</span>
                     <img src="img/svg/sobre.svg" alt="">
-                    <span class="home-icon cadeira"></span>
+                    <img src="img/svg/home-cadeira.svg" class="home-icon cadeira" />
                 </a>
             </li>
             <li class="item shape3">
                 <a href="#">
                     <span class="title">Busque um local</span>
                     <img src="img/svg/busque-um-local.svg" alt="">
-                    <span class="home-icon garrafa"></span>
+                    <img src="img/svg/home-garrafa.svg" class="home-icon garrafa" />
                 </a>
             </li>
             <li class="item shape4">
                 <a href="#">
                     <span class="title">Adicione um local</span>
                     <img src="img/svg/adicione-um-local.svg" alt="">
-                    <span class="home-icon ventilador"></span>
+                    <img src="img/svg/home-ventilador.svg" class="home-icon ventilador" />
                 </a>
             </li>
             <li class="item shape5">
                 <a href="javascript:Login.show();">
                     <span class="title">Login</span>
                     <img src="img/svg/login.svg" alt="">
-                    <span class="home-icon copo"></span>
+                    <img src="img/svg/home-copo.svg" class="home-icon copo" />
                 </a>
             </li>
         </ul>
